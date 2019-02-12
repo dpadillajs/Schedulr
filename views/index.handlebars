@@ -1,33 +1,98 @@
-<div id="home">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Schedulogs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Clients</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Summary</a>
+          <a class="dropdown-item" href="#">Management</a>
+          <a class="dropdown-item" href="#">Schedule</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">New Entry</a>
+        </div>
+      </li>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid mb-0">
   <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<div class="jumbotron jumbotron-fluid mb-0 jumbo-custom">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid mb-0">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Summary</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Management</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1">Schedule</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="card-body">
+        <div class="col-sm-6 mx-auto">
+          <div class="card border-info mb-3">
+            <div class="card-header">John M. Doe</div>
+            <div class="card-body text-info">
+              <p class="card-text text-left"><strong>Address: </strong>123 Example Drive, Raleigh, NC 27615</p>
+              <p class="card-text text-left"><strong>Email: </strong>johndoe@example.com</p>
+              <p class="card-text text-left"><strong>Phone Number: </strong>123.456.7890</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mx-auto">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
