@@ -3,13 +3,8 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index");
-      console.log(dbExamples);
-
     db.Example.findAll({}).then(function(dbExample) {
-      res.render("index", {
+      res.render("landingPage", {
         msg: "This is the index page.  Login here.",
         examples: dbExample
       });
