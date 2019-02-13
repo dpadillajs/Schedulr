@@ -24,13 +24,12 @@ module.exports = function(app) {
     });
   });
 
-
   // Load example page and pass in an example by id
   app.get("/client/appointment/:id", function(req, res) {
-    db.Appointment.findAll({ 
-      where: { 
-        id: req.params.id 
-      } 
+    db.Appointment.findAll({
+      where: {
+        id: req.params.id
+      }
     }).then(function(dbAppt) {
       res.render("appointment", {
         msg: "This is appointment " + req.params.id,
