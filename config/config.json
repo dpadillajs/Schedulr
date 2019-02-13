@@ -3,7 +3,7 @@
     "username": "root",
     "password": "root",
     "port": 8889,
-    "database": "example_db",
+    "database": "appointmentdb",
     "host": "localhost",
     "dialect": "mysql"
   },

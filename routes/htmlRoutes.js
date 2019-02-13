@@ -3,19 +3,42 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index");
       console.log(dbExamples);
+
+    db.Example.findAll({}).then(function(dbExample) {
+      res.render("index", {
+        msg: "This is the index page.  Login here.",
+        examples: dbExample
+      });
+    });
+  });
+
+  app.get("/client/:client_id", function(req, res) {
+    db.Appointment.findAll({
+      where: {
+        business_id: req.params.client_id
+      }
+    }).then(function(dbAppt) {
+      res.render("client", {
+        msg: "Welcome client " + req.params.client_id,
+        appointments: dbAppt
+      });
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
+  app.get("/client/appointment/:id", function(req, res) {
+    db.Appointment.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAppt) {
+      res.render("appointment", {
+        msg: "This is appointment " + req.params.id,
+        appointment: dbAppt
       });
     });
   });
