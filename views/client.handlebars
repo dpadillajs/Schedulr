@@ -3,28 +3,59 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
+        <h2>{{bus_id}}</h2>
         <h2>This is the client page</h2>
-        <form class="clearfix mb-4" action="POST">
+        <form id="newappt" class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Create New Appointment</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="customer">Select Customer</label>
+              <select class="form-control" id="customer">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            <button>New Customer</button>
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="start-time">Appointment DateTime</label>            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                <input type="text" id="appt-date" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker1').datetimepicker();
+                        });
+                    </script>
+                </div>
+            </div>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+
+          <div class="form-group">
+            <label for="note">Note</label>
+            <textarea class="form-control" id="note" placeholder="Note"></textarea>
+          </div>
+          <button id="submit" data-id={{bus_id}} class="btn btn-primary float-right">Submit</button>
         </form>
+
         <h3>Appointments:</h3>
-        <ul id="example-list" class="list-group">
+        <ul id="appointment-list" class="list-group">
           {{#each appointments}}
             <a href="appointment/{{this.id}}">
             <p>{{id}}: {{start_time}}</p></a>
             <p>{{note}}</p>
+            <button id="cancel" data-id={{id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
+            <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right delete">Edit Appointment</button></a>
             <hr>
-          <li data-id="{{this.id}}" class="list-group-item">
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
           {{/each}}
         </ul>
       </div>
@@ -33,4 +64,5 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+<script src="/assets/js/appointment.js"></script>
