@@ -1,0 +1,96 @@
+.parallax-effect {
+  background-image: url("../img/calendar.jpg");
+  height: 350px;
+
+  /* Creates the Parallax Scrolling Effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overview {
+  background: rgb(42, 55, 69);
+}
+
+@media (min-width: 576px) {
+  .col-sm {
+    flex-grow: unset;
+  }
+}
+
+.custom-card-width {
+  width: auto !important;
+}
+
+.custom-icon-styling {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 150px;
+  color: white;
+}
+
+.custom-icon-cards {
+  background-color: transparent;
+  border: none;
+}
+
+.card-title-styling {
+  font-family: "Yesteryear", cursive;
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.display-4 {
+  font-family: "Archivo", sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 5.5rem;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: rgb(42, 55, 69);
+  border-color: white;
+}
+
+.schedulr-text {
+  color: white;
+  background-color: rgb(42, 55, 69, 0.75);
+}
+
+.landing-page-text {
+  color: white;
+}
+
+.login-bg {
+  min-width: 100%;
+  background: white;
+}
+
+.landing-page-bg {
+  background: rgb(42, 55, 69);
+}
+
+.sign-up-link {
+  display: block;
+}
+
+.login-box {
+  width: 90%;
+}
+
+.sign-up-link a {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 600;
+}
