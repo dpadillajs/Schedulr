@@ -1,6 +1,6 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExample) {
@@ -41,5 +41,26 @@ module.exports = function(app) {
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
+  });
+  //Authentification
+
+  app.post("/signup", function(req, res, next) {
+    passport.authenticate("local-signup", function(err, user, info) {
+      console.log(err);
+      console.log(user);
+      console.log(info);
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        res.json(info);
+      }
+      req.logIn(user, function(err) {
+        if (err) {
+          return next(err);
+        }
+        res.json({ id: user.dataValues.id });
+      });
+    })(req, res, next);
   });
 };
