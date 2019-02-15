@@ -19,6 +19,7 @@ module.exports = function(app, passport) {
     }).then(function(dbAppt) {
       res.render("client", {
         msg: "Welcome client " + req.params.client_id,
+        bus_id: req.params.client_id,
         appointments: dbAppt
       });
     });
@@ -31,7 +32,7 @@ module.exports = function(app, passport) {
         id: req.params.id
       }
     }).then(function(dbAppt) {
-      res.render("appointment", {
+      res.render("editappt", {
         msg: "This is appointment " + req.params.id,
         appointment: dbAppt
       });
