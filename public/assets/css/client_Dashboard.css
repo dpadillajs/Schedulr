@@ -1,0 +1,119 @@
+.client-dashboard-bg {
+  background: rgb(42, 55, 69);
+  color: white;
+  height: 65px;
+}
+
+.client-logo {
+  margin: 0;
+  font-size: 30px;
+  font-family: "Archivo", sans-serif;
+  text-shadow: 4px 4px 8px #000000;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: #dee2e6 #dee2e6 transparent;
+}
+
+.custom-nav-links,
+.custom-nav-links:hover {
+  color: white;
+  border: 1px solid transparent;
+}
+
+.custom-nav-links:hover {
+  background: rgb(60, 79, 99);
+}
+
+.custom-nav {
+  padding-top: 20px;
+  background: rgb(42, 55, 69);
+}
+
+.nav-tabs .nav-link.active {
+  background: rgb(90, 90, 90);
+  color: white;
+}
+
+.tab-bg {
+  background: rgb(90, 90, 90);
+}
+
+.summary-box {
+  min-width: 225px;
+}
+
+.card-body {
+  height: 110px;
+}
+
+.month-header {
+  background: rgb(42, 55, 69);
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 7px;
+  font-weight: bold;
+}
+
+.card-body-padding {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-date-text {
+  text-align: center;
+  font-size: 55px;
+  padding: 0;
+  font-weight: bold;
+  color: rgb(42, 55, 69);
+}
+
+.summary-cards {
+  height: 200px;
+  max-width: none !important;
+}
+
+.time-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.summary-time {
+  background: rgb(42, 55, 69);
+}
+
+.appt-header,
+.members-header {
+  background: rgb(42, 55, 69);
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 19px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.appt-text,
+.member-text {
+  font-size: 70px;
+  font-weight: bold;
+  color: rgb(42, 55, 69);
+}
+
+/* .company-info-bg {
+  background: rgb(90, 90, 90);
+} */
+
+.dashboard-bg {
+  background: rgb(90, 90, 90);
+  height: 100vh;
+}
+
+.company-info-body {
+  height: auto;
+}

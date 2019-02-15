@@ -1,0 +1,168 @@
+<div class="dashboard-bg">
+    <div class="container-fluid client-dashboard-bg d-flex justify-content-between align-items-end">
+        <p class="client-logo">Duke Clinic Dashboard</p> {{!-- USE HANLEBARS TO GET CLIENT NAME --}}
+    </div>
+
+    <ul class="nav custom-nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                aria-controls="home" aria-selected="true">Summary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                aria-controls="profile" aria-selected="false">Portal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                aria-controls="contact" aria-selected="false">Member</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active tab-bg" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container pt-4 company-info-bg">
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <div class="card">
+                            <img src="/assets/img/dummyPhoto.png" class="card-img-top" alt="...">
+                            <div class="card-body company-info-body">
+                                <dl class="row">
+                                    <dt class="col-sm-3">Company Name...</dt>
+                                    <dd class="col-sm-9">Duke Health Clinic</dd>
+
+                                    <dt class="col-sm-3">Company Location...</dt>
+                                    <dd class="col-sm-9">123 Example Road, Raleigh, NC 27707</dd>
+
+                                    <dt class="col-sm-3">Company Number...</dt>
+                                    <dd class="col-sm-9">123.456.7890
+                                    </dd>
+
+                                    <dt class="col-sm-3">Company Hours...</dt>
+                                    <dd class="col-sm-9">09:00AM through 4:30PM</dd>
+
+                                    <dt class="col-sm-3 text-truncate">Company Email...</dt>
+                                    <dd class="col-sm-9">clinic@dukehealth.edu</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container pt-4">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3 summary-box summary-date">
+                        <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header month-header">November</div>
+                            <div class="card-body card-body-padding">
+                                <p class="card-text summary-date-text">14</p>
+                            </div>
+                            <div class="card-header month-header">Thursday</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 summary-box">
+                        <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-body card-body-padding summary-time">
+                                <p class="card-text time-text">2:15 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 summary-box summary-appt">
+                        <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-body card-body-padding">
+                                <p class="card-text appt-text">5</p>
+                            </div>
+                            <div class="card-header appt-header">Appointments</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 summary-box summary-member">
+                        <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-body card-body-padding">
+                                <p class="card-text member-text">19</p>
+                            </div>
+                            <div class="card-header members-header">Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade tab-bg" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade tab-bg" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div id="home">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <h2>Edit appointment: {{id}}</h2>
+
+                            <h3>{{msg}}</h3>
+                            <ul id="example-list" class="list-group">
+                                {{#each appointment}}
+                                <p id="id" data-id={{id}}>Appointment: {{id}}</p>
+                                <p>Appointment Time: {{start_time}}</p>
+                                <p>Customer: {{customer_id}}</p>
+                                <p>Note: {{note}}</p>
+                                <hr>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Updated Appointment Information</h2>
+
+            <div class="container">
+                <form id="editappt" class="clearfix mb-4" action="POST">
+                    <div class="form-group">
+                        <label for="start-time">Appointment DateTime</label>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                            <input type="text" id="appt-date" class="form-control datetimepicker-input"
+                                                data-target="#datetimepicker1" />
+                                            <div class="input-group-append" data-target="#datetimepicker1"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker1').datetimepicker();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea class="form-control" id="note" placeholder="Note"></textarea>
+                    </div>
+                    <button id="submit" data-id={{appointment.id}} class="btn btn-primary float-right">Submit</button>
+                </form>
+            </div>
+            <script src="/assets/js/edit.js"></script>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div> --}}

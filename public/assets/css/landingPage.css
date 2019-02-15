@@ -94,3 +94,24 @@
 strong {
   font-weight: 600;
 }
+
+.remove-border {
+  border: none;
+}
+
+small {
+  font-size: 70%;
+}
+
+.remove-border-radius {
+  border-radius: initial;
+}
+
+.modal {
+  width:340px;
+  height:600px !important; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
