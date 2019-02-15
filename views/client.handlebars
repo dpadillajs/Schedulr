@@ -53,7 +53,7 @@
             <a href="appointment/{{this.id}}">
             <p>{{id}}: {{start_time}}</p></a>
             <p>{{note}}</p>
-            <button id="cancel" data-id={{id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
+            <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
             <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right delete">Edit Appointment</button></a>
             <hr>
           {{/each}}

@@ -40,6 +40,7 @@ module.exports = function(app) {
 
   // Delete an appointment by id
   app.delete("/api/appointments/:id", function(req, res) {
+    console.log("deleting");
     db.Appointment.destroy({ where: { id: req.params.id } }).then(function(
       dbAppt
     ) {

@@ -1,8 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "port": 8809,
+    "password": null,
     "database": "appointmentdb",
     "host": "localhost",
     "dialect": "mysql"
