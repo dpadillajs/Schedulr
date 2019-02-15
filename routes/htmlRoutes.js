@@ -24,10 +24,11 @@ module.exports = function(app, passport) {
     db.Appointment.findAll({
       where: {
         business_id: req.params.client_id
-      }
+      },
+      include: [db.Client]
     }).then(function(dbAppt) {
       res.render("client", {
-        msg: "Welcome client " + req.params.client_id,
+        msg: "Welcome!",
         bus_id: req.params.client_id,
         appointments: dbAppt
       });
@@ -39,7 +40,8 @@ module.exports = function(app, passport) {
     db.Appointment.findAll({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Client]
     }).then(function(dbAppt) {
       res.render("editappt", {
         msg: "This is appointment " + req.params.id,

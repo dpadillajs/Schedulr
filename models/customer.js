@@ -4,5 +4,13 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     phone: DataTypes.STRING
   });
+
+  // Customer.associate = function(models) {
+  //   Customer.hasMany(models.Appointment, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Customer;
 };

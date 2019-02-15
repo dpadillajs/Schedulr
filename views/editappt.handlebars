@@ -7,7 +7,7 @@
                 <h3>{{msg}}</h3>
                 <ul id="example-list" class="list-group">
                     {{#each appointment}}
-                    <p id="id" data-id={{id}}>Appointment: {{id}}</p>
+                    <p>{{this.Client.bus_name}} appointment {{id}}</p>
                     <p>Appointment Time: {{start_time}}</p>
                     <p>Customer: {{customer_id}}</p>
                     <p>Note: {{note}}</p>
