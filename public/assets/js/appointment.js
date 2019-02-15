@@ -2,7 +2,7 @@ var $customer = $("#customer");
 var $startTime = $("#appt-date");
 var $note = $("#note");
 var $submitBtn = $("#submit");
-var $cancBtn = $("#cancel");
+var $cancBtn = $(".delete");
 
 var API = {
   saveAppointment: function(appt) {
@@ -48,13 +48,14 @@ var newAppointment = function(event) {
   }
 
   API.saveAppointment(appt).then(function() {
-    console.log("New Appt saved 3");
-    console.log(appt);
+    location.reload();
   });
 };
 
-var deletedAppt = function() {
-  var apptID = $cancBtn.attr("data-id");
+var deletedAppt = function(event) {
+  event.preventDefault();
+  var apptID = $(this).attr("data-id");
+  console.log(apptID);
   API.deleteAppointment(apptID).then(function() {
     location.reload();
   });

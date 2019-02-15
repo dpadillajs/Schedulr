@@ -89,15 +89,15 @@
         <div class="col-sm-12 login-bg d-flex flex-row-reverse">
           <button type="submit" id="clientLogin" class="btn remove-border-radius btn-primary mb-3 mt-2">Login</button>
         </div>
-    </form>
-    <form>
-      <div class="col-sm-12 login-bg">
-        <button class="btn remove-border-radius btn-primary mb-3" type="button" data-toggle="collapse"
-          data-target="#client-signup" aria-expanded="false" aria-controls="client-signup">
-          <i class="fas fa-user-plus"></i> New Account
+
+        <div class="col-sm-12 login-bg"></div>
+        <button class="btn btn-primary mb-3" type="button" data-toggle="modal" data-target="#client-signup"
+          aria-expanded="false" aria-controls="client-signup">
+          Create new client account
         </button>
-        <div class="collapse" id="client-signup">
-          <div class="card card-body mb-0 pt-0 remove-border">
+        <div class="modal" id="client-signup">
+          <div class="card card-body mb-3">
+
             <div class="form-group mt-2">
               <label for="clientEmail"><strong>Email</strong></label>
               <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
@@ -133,5 +133,6 @@
         </div>
       </div>
     </form>
+   
   </div>
 </div>

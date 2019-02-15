@@ -6,25 +6,25 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveAppointment: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/appointments",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getAppointments: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/appointments",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteAppointment: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/appointments/" + id,
       type: "DELETE"
     });
   }
@@ -59,9 +59,9 @@ var refreshExamples = function() {
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
+// newAppointment is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var newAppointment = function(event) {
   event.preventDefault();
 
   var example = {
@@ -95,5 +95,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$submitBtn.on("click", newAppointment);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
