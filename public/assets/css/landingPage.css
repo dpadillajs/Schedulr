@@ -94,3 +94,11 @@
 strong {
   font-weight: 600;
 }
+.modal {
+  width:340px;
+  height:600px !important; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
