@@ -2,6 +2,7 @@ var $customer = $("#customer");
 var $startTime = $("#appt-date");
 var $note = $("#note");
 var $submitBtn = $("#submit");
+var $dateTimePicker = $("#datetimepicker4");
 var $cancBtn = $(".delete");
 
 var API = {
@@ -28,6 +29,11 @@ var API = {
       type: "DELETE"
     });
   }
+};
+
+var availTimes = function() {
+  var date = $startTime.val().trim();
+  alert(date);
 };
 
 var newAppointment = function(event) {
@@ -62,5 +68,5 @@ var deletedAppt = function(event) {
 };
 
 $submitBtn.on("click", newAppointment);
-
+$startTime.on("change", availTimes);
 $cancBtn.on("click", deletedAppt);
