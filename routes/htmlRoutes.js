@@ -25,7 +25,16 @@ module.exports = function(app, passport) {
       where: {
         business_id: req.params.client_id
       },
-      include: [db.Client]
+      include: [
+        {
+          model: db.Client,
+          as: "Client"
+        },
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
     }).then(function(dbAppt) {
       res.render("client", {
         msg: "Welcome!",
@@ -41,7 +50,16 @@ module.exports = function(app, passport) {
       where: {
         id: req.params.id
       },
-      include: [db.Client]
+      include: [
+        {
+          model: db.Client,
+          as: "Client"
+        },
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
     }).then(function(dbAppt) {
       res.render("editappt", {
         msg: "This is appointment " + req.params.id,

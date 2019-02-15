@@ -5,12 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     phone: DataTypes.STRING
   });
 
-  // Customer.associate = function(models) {
-  //   Customer.hasMany(models.Appointment, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Customer.associate = function(models) {
+    Customer.hasMany(models.Appointment, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Customer;
 };

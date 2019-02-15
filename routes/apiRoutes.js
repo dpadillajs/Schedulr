@@ -4,7 +4,16 @@ module.exports = function(app) {
   // Get all appointments
   app.get("/api/appointments", function(req, res) {
     db.Appointment.findAll({
-      include: [db.Client]
+      include: [
+        {
+          model: db.Client,
+          as: "Client"
+        },
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
     }).then(function(dbAppt) {
       res.json(dbAppt);
     });
@@ -17,7 +26,8 @@ module.exports = function(app) {
       business_id: req.body.business_id,
       start_time: req.body.start_time,
       note: req.body.note,
-      ClientId: req.body.business_id
+      ClientId: req.body.business_id,
+      CustomerId: req.body.customer_id
     }).then(function(dbAppt) {
       res.json(dbAppt);
     });

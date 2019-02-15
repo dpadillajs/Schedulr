@@ -13,7 +13,6 @@
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
-                <option>5</option>
               </select>
             <button>New Customer</button>
           </div>
@@ -52,6 +51,10 @@
           {{#each appointments}}
             <a href="appointment/{{this.id}}">
             <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p></a>
+            <p>{{this.Customer.name}}</p>                    <p>Customer name: {{this.Customer.name}}</p>
+            <p>Customer id: {{this.Customer.id}}</p>
+            <p>Customer phone: {{this.Customer.phone}}</p>
+            <p>Customer email: {{this.Customer.email}}</p>
             <p>{{note}}</p>
             <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
             <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit Appointment</button></a>

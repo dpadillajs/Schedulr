@@ -13,11 +13,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    // Appointment.hasMany(models.Customer, {
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
+    Appointment.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return Appointment;
 };
