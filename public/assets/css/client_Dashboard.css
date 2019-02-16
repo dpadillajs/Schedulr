@@ -124,7 +124,8 @@
 
 .new-member-btn-styling,
 .new-member-btn-styling:hover,
-.new-member-btn-styling:not(:disabled):not(.disabled):active {
+.new-member-btn-styling:not(:disabled):not(.disabled):active,
+.customer-details-header-bg {
   background: rgb(42, 55, 69);
 }
 
@@ -135,4 +136,21 @@
 
 #home-tab {
   margin-left: 20px;
+}
+
+.search-width-styling {
+  width: 250px !important;
+}
+
+.customer-navbar-styling {
+  background: rgb(42, 55, 69);
+  color: white;
+}
+
+.portal-card-styling {
+  border: 5px solid rgba(0, 0, 0, 0.125);
+}
+
+.edit-del-styling {
+  font-size: 20px;
 }
