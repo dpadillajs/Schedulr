@@ -29,3 +29,26 @@ $("#clientSignup").on("click", function(event) {
     }
   });
 });
+
+$("#clientLogin").on("click", function(event) {
+  event.preventDefault();
+  var login = {};
+  login.email = $("#landingPageEmail")
+    .val()
+    .trim();
+  login.password = $("#landingPagePassword")
+    .val()
+    .trim();
+  $.ajax({
+    method: "POST",
+    url: "/signin",
+    data: login
+  }).then(function(response) {
+    if (response.id) {
+      window.location.replace("/client/" + response.id);
+    }
+    if (response.message) {
+      alert(response.message);
+    }
+  });
+});

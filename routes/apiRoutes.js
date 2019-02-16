@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all appointments
-  app.get("/api/appointments", function(req, res) {
+  app.get("/api/appointments", isLoggedIn, function(req, res) {
     db.Appointment.findAll({
       include: [
         {
@@ -58,4 +58,11 @@ module.exports = function(app) {
       res.json(dbAppt);
     });
   });
+
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect("/");
+  }
 };
