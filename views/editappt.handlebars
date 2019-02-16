@@ -7,9 +7,12 @@
                 <h3>{{msg}}</h3>
                 <ul id="example-list" class="list-group">
                     {{#each appointment}}
-                    <p id="id" data-id={{id}}>Appointment: {{id}}</p>
+                    <p>{{this.Client.bus_name}} appointment {{id}}</p>
                     <p>Appointment Time: {{start_time}}</p>
-                    <p>Customer: {{customer_id}}</p>
+                    <p>Customer name: {{this.Customer.name}}</p>
+                    <p>Customer id: {{this.Customer.id}}</p>
+                    <p>Customer phone: {{this.Customer.phone}}</p>
+                    <p>Customer email: {{this.Customer.email}}</p>
                     <p>Note: {{note}}</p>
                     <hr>
                     </li>
