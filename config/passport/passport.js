@@ -20,6 +20,7 @@ module.exports = function(passport, client) {
     });
   });
 
+  //LOCAL SIGNUP
   passport.use(
     "local-signup",
     new LocalStrategy(
@@ -60,6 +61,49 @@ module.exports = function(passport, client) {
             });
           }
         });
+      }
+    )
+  );
+
+  //LOCAL SIGNIN
+  passport.use(
+    "local-signin",
+    new LocalStrategy(
+      {
+        usernameField: "email",
+        passwordField: "password",
+        passReqToCallback: true
+      },
+      function(req, email, password, done) {
+        var Client = client;
+        var isValidPassword = function(userpass, password) {
+          return bCrypt.compareSync(password, userpass);
+        };
+        db.Client.findOne({
+          where: {
+            email: email
+          }
+        })
+          .then(function(client) {
+            if (!client) {
+              return done(null, false, {
+                message: "Email does not exist"
+              });
+            }
+            if (!isValidPassword(client.password, password)) {
+              return done(null, false, {
+                message: "Incorrect password."
+              });
+            }
+            var clientinfo = client.get();
+            return done(null, clientinfo);
+          })
+          .catch(function(err) {
+            console.log("Error:", err);
+            return done(null, false, {
+              message: "Something went wrong with your Signin"
+            });
+          });
       }
     )
   );

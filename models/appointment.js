@@ -5,5 +5,19 @@ module.exports = function(sequelize, DataTypes) {
     start_time: DataTypes.DATE,
     note: DataTypes.TEXT
   });
+
+  Appointment.associate = function(models) {
+    Appointment.belongsTo(models.Client, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Appointment.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Appointment;
 };

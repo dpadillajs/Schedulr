@@ -2,9 +2,9 @@
   "development": {
     "username": "root",
     "password": "root",
-    "port": 8889,
     "database": "appointmentdb",
     "host": "localhost",
+    "port": 8889,
     "dialect": "mysql"
   },
   "test": {
