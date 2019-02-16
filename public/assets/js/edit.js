@@ -2,6 +2,7 @@ var $startTime = $("#appt-date");
 var $note = $("#note");
 var $id = $("#id");
 var $submitBtn = $("#submit");
+var $clientID = 
 
 var editedAppt = function() {
   event.preventDefault();
@@ -19,7 +20,7 @@ var editedAppt = function() {
   }).then(function() {
     //need to update this to redirect to dashboard, or
     //reload dashboard window
-    window.location.href = "/client/2";
+    window.location.href = "/client/" + 2;
   });
 };
 
