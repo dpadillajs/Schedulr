@@ -11,6 +11,15 @@ module.exports = function(app, passport) {
     });
   });
 
+  app.get("/dashboard/client", function(req, res) {
+    db.Example.findAll({}).then(function(dbExample) {
+      res.render("client_Dashboard", {
+        msg: "This is the index page.  Login here.",
+        examples: dbExample
+      });
+    });
+  });
+
   app.get("/client/:client_id", isLoggedIn, function(req, res) {
     db.Appointment.findAll({
       where: {
