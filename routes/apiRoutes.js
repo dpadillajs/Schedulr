@@ -3,26 +3,37 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all appointments
   app.get("/api/appointments", isLoggedIn, function(req, res) {
-    db.Appointment.findAll({}).then(function(dbAppt) {
+    db.Appointment.findAll({
+      include: [
+        {
+          model: db.Client,
+          as: "Client"
+        },
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
+    }).then(function(dbAppt) {
       res.json(dbAppt);
     });
   });
 
   // Create a new appointment
   app.post("/api/appointments", function(req, res) {
-    console.log(req.body);
     db.Appointment.create({
       customer_id: req.body.customer_id,
       business_id: req.body.business_id,
       start_time: req.body.start_time,
-      note: req.body.note
+      note: req.body.note,
+      ClientId: req.body.business_id,
+      CustomerId: req.body.customer_id
     }).then(function(dbAppt) {
       res.json(dbAppt);
     });
   });
 
   app.put("/api/appointments", function(req, res) {
-    console.log(req.body);
     db.Appointment.update(
       {
         start_time: req.body.start_time,
