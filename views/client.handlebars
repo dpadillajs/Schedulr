@@ -8,35 +8,36 @@
         <form id="newappt" class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="customer">Select Customer</label>
-              <select class="form-control" id="customer">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+            <select class="form-control" id="customer">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
             <button>New Customer</button>
           </div>
           <div class="form-group">
-            <label for="start-time">Appointment DateTime</label>            
+            <label for="start-time">Appointment DateTime</label>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                <input type="text" id="appt-date" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                      <input type="text" id="appt-date" class="form-control datetimepicker-input"
+                        data-target="#datetimepicker1" />
+                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
+                  </div>
                 </div>
+                <script type="text/javascript">
+                  $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                  });
+                </script>
+              </div>
             </div>
           </div>
 
@@ -50,14 +51,19 @@
         <h3>Appointments:</h3>
         <ul id="appointment-list" class="list-group">
           {{#each appointments}}
-            <a href="appointment/{{this.id}}">
-            <p>{{id}}: {{start_time}}</p></a>
-            <p>{{note}}</p>
-            <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
-            <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right delete">Edit Appointment</button></a>
-            <hr>
+          <a href="appointment/{{this.id}}">
+            <p>{{id}}: {{start_time}}</p>
+          </a>
+          <p>{{note}}</p>
+          <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
+          <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}}
+              class="btn btn-danger float-right delete">Edit Appointment</button></a>
+          <hr>
           {{/each}}
         </ul>
+      </div>
+      <div class="col-2">
+        <a href="/logout" class="btn btn-outline-secondary">Logout</a>
       </div>
     </div>
   </div>
