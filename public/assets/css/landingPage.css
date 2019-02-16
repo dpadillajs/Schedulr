@@ -1,6 +1,7 @@
 .parallax-effect {
   background-image: url("../img/calendar.jpg");
   height: 350px;
+  width: 100%;
 
   /* Creates the Parallax Scrolling Effect */
   background-attachment: fixed;
@@ -30,7 +31,7 @@
 .custom-icon-styling {
   text-align: center;
   padding-top: 20px;
-  font-size: 150px;
+  font-size: 100px;
   color: white;
 }
 
@@ -59,6 +60,12 @@
 .btn-primary:not(:disabled):not(.disabled):active {
   background-color: rgb(42, 55, 69);
   border-color: white;
+  display: inline-block;
+  width: auto;
+  position: absolute;
+  vertical-align: middle;
+
+
 }
 
 .schedulr-text {
@@ -66,14 +73,11 @@
   background-color: rgb(42, 55, 69, 0.75);
 }
 
+
 .landing-page-text {
   color: white;
 }
 
-.login-bg {
-  min-width: 100%;
-  background: white;
-}
 
 .landing-page-bg {
   background: rgb(42, 55, 69);
@@ -91,14 +95,40 @@
   text-decoration: underline;
 }
 
-strong {
-  font-weight: 600;
-}
 .modal {
-  width:340px;
-  height:600px !important; 
+  width: 340px;
+  height: 600px !important;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.form-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 65px;
+  margin-top: 10px;
+
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-left: 650px;
+}
+
+.form-control {
+  margin: 10px;
+}
+
+a {
+  color: white;
+  margin-top: 60px;
+  font-size: 11px;
 }

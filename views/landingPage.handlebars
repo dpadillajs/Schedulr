@@ -1,48 +1,24 @@
 <div class="landing-page-bg">
-  <div class="jumbotron jumbotron-fluid mb-0 p-0 overview">
-    <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-sm custom-card-width mb-3 pt-3">
-          <div class="card custom-icon-cards" style="width: 18rem;">
-            <i class="far fa-calendar-alt custom-icon-styling"></i>
-            <div class="card-body">
-              <h5 class="card-title card-title-styling">Appointments</h5>
-              <p class="card-text landing-page-text text-center">
-                We want to amplify your reach and give you full control
-                over managing appointments with your customers.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm custom-card-width mb-3 pt-3">
-          <div class="card custom-icon-cards" style="width: 18rem;">
-            <i class="far fa-envelope-open custom-icon-styling"></i>
-            <div class="card-body">
-              <h5 class="card-title card-title-styling">Communications</h5>
-              <p class="card-text landing-page-text text-center">
-                Whether you are running business or a returning
-                customer, we have made it easy to view the information
-                you care about.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm custom-card-width mb-3 pt-3">
-          <div class="card custom-icon-cards" style="width: 18rem;">
-            <i class="far fa-handshake custom-icon-styling"></i>
-            <div class="card-body">
-              <h5 class="card-title card-title-styling">Client Satisfaction</h5>
-              <p class="card-text landing-page-text text-center">
-                Schedulr stores business and customer information alike
-                to preserve customer engagement. We can only guarantee all smiles.
-              </p>
-            </div>
-          </div>
+  <form class="form">
+    <div class="row">
+      <div class="form-group mt-2">
+        <label for="landingPageEmail"></label>
+        <input name="email" type="email" class="form-control" id="landingPageEmail" aria-describedby="emailHelp"
+          placeholder="Enter email" required>
+      </div>
+      <div class="row">
+        <div class="form-group mt-2">
+          <label for="landingPagePassword"></label>
+          <input name="password" type="password" class="form-control" id="landingPagePassword"
+            placeholder="Enter Password" required>
+          <button type="submit" class="btn btn-primary mb-2">Login</button>
         </div>
       </div>
+      <!-- Want Create Account Here -->
     </div>
-  </div>
-
+</div>
+</form>
+<div class="jumbotron jumbotron-fluid mb-0 p-0 overview">
   <div class="jumbotron jumbotron-fluid parallax-effect">
     <h1 class="display-4 text-center schedulr-logo">schedulr</h1>
     <p class="lead text-center schedulr-text">
@@ -50,88 +26,133 @@
         both client and customer</em>
     </p>
   </div>
-
-  <div class="container pb-4 login-box">
-    <form>
-      <div class="row">
-        <div class="col-sm mx-auto login-bg">
-          <p class="mt-3">Log in to your member account.</p>
-          <div class="form-group mt-2">
-            <label for="landingPageEmail"><strong>Email address</strong></label>
-            <input name="email" type="email" class="form-control" id="landingPageEmail" aria-describedby="emailHelp"
-              placeholder="Enter email" required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="landingPagePassword"><strong>Password</strong></label>
-            <input name="password" type="password" class="form-control" id="landingPagePassword" placeholder="Password"
-              required>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-sm custom-card-width mb-3 pt-3">
+        <div class="card custom-icon-cards" style="width: 18rem;">
+          <i class="far fa-calendar-alt custom-icon-styling"></i>
+          <div class="card-body">
+            <h5 class="card-title card-title-styling">Appointments</h5>
+            <p class="card-text landing-page-text text-center">
+              We want to amplify your reach and give you full control
+              over managing appointments with your customers.
+            </p>
           </div>
         </div>
       </div>
-      <div class="row">
-        {{!-- <div class="col-sm-6 login-bg">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="userIdentified" id="inlineRadio1" value="customerClient"
-              required>
-            <label class="form-check-label" for="inlineRadio1">Returning Customer</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="userIdentified" id="inlineRadio2" value="companyClient"
-              required>
-            <label class="form-check-label" for="inlineRadio2">Business Partner</label>
-          </div>
-        </div>
-        <div class="col-sm-6 login-bg">
-          <span class="text-right sign-up-link mt-4">Not signed up?
-            <a href="#" id="registerNowBtn">Register now</a>
-          </span>
-        </div> --}}
-        <div class="col-sm-12 login-bg d-flex flex-row-reverse">
-          <button type="submit" id="clientLogin" class="btn btn-primary mb-3 mt-2">Login</button>
-        </div>
-        <div class="col-sm-12 login-bg"></div>
-        <button class="btn btn-primary mb-3" type="button" data-toggle="modal" data-target="#client-signup"
-          aria-expanded="false" aria-controls="client-signup">
-          Create new client account
-        </button>
-        <div class="modal" id="client-signup">
-          <div class="card card-body mb-3">
-            <div class="form-group mt-2">
-              <label for="clientEmail"><strong>Email address</strong></label>
-              <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
-                placeholder="Enter email" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="clientName"><strong>Name of the company</strong></label>
-              <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name"
-                placeholder="Enter name of the company" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="clientFirstApp"><strong>Time of the first appointment</strong></label>
-              <input name="first_apt" type="time" class="form-control" id="clientFirstApp" aria-describedby="FirstApp"
-                placeholder="" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="clientLastApp"><strong>Time of the last appointment</strong></label>
-              <input name="last_apt" type="time" class="form-control" id="clientLastApp" aria-describedby="LastApp"
-                placeholder="" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="clientPassw"><strong>Your password</strong></label>
-              <input type="password" name="password" class="form-control" id="clientPassw" aria-describedby="password"
-                placeholder="Password" required>
-            </div>
-            <button type="submit" id="clientSignup" class="btn btn-primary mb-3 mt-2">Sign Up</button>
-
+      <div class="col-sm custom-card-width mb-3 pt-3">
+        <div class="card custom-icon-cards" style="width: 18rem;">
+          <i class="far fa-envelope-open custom-icon-styling"></i>
+          <div class="card-body">
+            <h5 class="card-title card-title-styling">Communications</h5>
+            <p class="card-text landing-page-text text-center">
+              Whether you are running business or a returning
+              customer, we have made it easy to view the information
+              you care about.
+            </p>
           </div>
         </div>
       </div>
-    </form>
-   
+      <div class="col-sm custom-card-width mb-3 pt-3">
+        <div class="card custom-icon-cards" style="width: 18rem;">
+          <i class="far fa-handshake custom-icon-styling"></i>
+          <div class="card-body">
+            <h5 class="card-title card-title-styling">Client Satisfaction</h5>
+            <p class="card-text landing-page-text text-center">
+              Schedulr stores business and customer information alike
+              to preserve customer engagement. We can only guarantee all smiles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+</div>
+
+
+<!--Create new account at bottom for now, working on fixing that. Signup button should align properly once the modal is in the correct position on the page-->
+
+<div class="col-sm-12 login-bg"></div>
+<button class="btn btn-primary mb-3" type="button" data-toggle="modal" data-target="#client-signup"
+  aria-expanded="false" aria-controls="client-signup">
+  Create Account
+</button>
+<div class="modal" id="client-signup">
+  <div class="card card-body mb-3">
+    <div class="form-group mt-2">
+      <label for="clientEmail"><strong>Email address</strong></label>
+      <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
+        placeholder="Enter email" required>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="clientPassw"><strong>Your password</strong></label>
+      <input type="password" name="password" class="form-control" id="clientPassw" aria-describedby="password"
+        placeholder="Password" required>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="clientName"><strong>Name of the company</strong></label>
+      <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name"
+        placeholder="Enter name of the company" required>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="clientaddress"><strong>Company Address</strong></label>
+      <input name="bus-address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
+        placeholder="Enter Address" required>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="inputTime"><strong>First Available Appointment</strong></label>
+      <select id="inputTime" class="form-control">
+        <option selected>Choose...</option>
+        <option value="1">8:00 AM</option>
+        <option value="2">9:00 AM</option>
+        <option value="3">10:00 AM</option>
+        <option value="4">11:00 AM</option>
+        <option value="5">12:00 PM</option>
+        <option value="6">1:00 PM</option>
+        <option value="7">2:00 PM</option>
+        <option value="8">3:00 PM</option>
+        <option value="9">4:00 PM</option>
+        <option value="10">5:00 PM</option>
+        <option value="11">6:00 PM</option>
+        <option value="12">7:00 PM</option>
+        <option value="13">8:00 PM</option>
+        <option value="14">9:00 PM</option>
+        <option value="15">10:00 PM</option>
+        <option>...</option>
+      </select>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="inputTime"><strong>Last Available Appointment</strong></label>
+      <select id="inputTime" class="form-control">
+        <option selected>Choose...</option>
+        <option value="1">8:00 AM</option>
+        <option value="2">9:00 AM</option>
+        <option value="3">10:00 AM</option>
+        <option value="4">11:00 AM</option>
+        <option value="5">12:00 PM</option>
+        <option value="6">1:00 PM</option>
+        <option value="7">2:00 PM</option>
+        <option value="8">3:00 PM</option>
+        <option value="9">4:00 PM</option>
+        <option value="10">5:00 PM</option>
+        <option value="11">6:00 PM</option>
+        <option value="12">7:00 PM</option>
+        <option value="13">8:00 PM</option>
+        <option value="14">9:00 PM</option>
+        <option value="15">10:00 PM</option>
+        <option>...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlFile1"><strong>Company Logo: </strong></label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+
+    <button type="submit" id="clientSignup" class="btn btn-primary mb-3 mt-2">Sign Up</button>
