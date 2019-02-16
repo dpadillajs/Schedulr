@@ -1,7 +1,7 @@
 .client-dashboard-bg {
   background: rgb(42, 55, 69);
   color: white;
-  height: 65px;
+  height: 47px;
 }
 
 .client-logo {
@@ -9,6 +9,7 @@
   font-size: 30px;
   font-family: "Archivo", sans-serif;
   text-shadow: 4px 4px 8px #000000;
+  margin-bottom: -15px;
 }
 
 .nav-tabs .nav-link.active {
@@ -105,10 +106,6 @@
   color: rgb(42, 55, 69);
 }
 
-/* .company-info-bg {
-  background: rgb(90, 90, 90);
-} */
-
 .dashboard-bg {
   background: rgb(90, 90, 90);
   height: 100vh;
@@ -116,4 +113,26 @@
 
 .company-info-body {
   height: auto;
+}
+
+.new-member-styling {
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.new-member-btn-styling,
+.new-member-btn-styling:hover,
+.new-member-btn-styling:not(:disabled):not(.disabled):active {
+  background: rgb(42, 55, 69);
+}
+
+.new-member-header-styling {
+  background: rgb(42, 55, 69);
+  color: white;
+}
+
+#home-tab {
+  margin-left: 20px;
 }

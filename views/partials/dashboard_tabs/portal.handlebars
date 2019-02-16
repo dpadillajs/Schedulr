@@ -1,0 +1,160 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="card mt-4 mx-auto">
+            <div class="card-header">
+                <nav class="navbar navbar-light bg-light justify-content-between">
+                    <a class="navbar-brand"><i class="fas fa-search"></i>&nbsp;&nbsp;&nbsp;Customer Lookup</a>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
+            <div class="card-body p-0 h-100">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Select</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">First</th>
+                                <th scope="col">MI</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Sex</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact Number</th>
+                            </tr>
+                        </thead>
+                        <form>
+                            <tbody>
+                                <tr>
+                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
+                                    </td>
+                                    <th scope="row">1</th>
+                                    <td>David</td>
+                                    <td>M</td>
+                                    <td>Padilla</td>
+                                    <td>28</td>
+                                    <td>M</td>
+                                    <td>123 Example Road, Example, EX 10000</td>
+                                    <td>example@gmail.com</td>
+                                    <td>123.456.7890</td>
+                                </tr>
+                                <tr>
+                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
+                                    </td>
+                                    <th scope="row">2</th>
+                                    <td>David</td>
+                                    <td>M</td>
+                                    <td>Padilla</td>
+                                    <td>28</td>
+                                    <td>M</td>
+                                    <td>123 Example Road, Example, EX 10000</td>
+                                    <td>example@gmail.com</td>
+                                    <td>123.456.7890</td>
+                                </tr>
+                                <tr>
+                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
+                                    </td>
+                                    <th scope="row">3</th>
+                                    <td>David</td>
+                                    <td>M</td>
+                                    <td>Padilla</td>
+                                    <td>28</td>
+                                    <td>M</td>
+                                    <td>123 Example Road, Example, EX 10000</td>
+                                    <td>example@gmail.com</td>
+                                    <td>123.456.7890</td>
+                                </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{{!-- <div id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h2>Edit appointment: {{id}}</h2>
+
+                <h3>{{msg}}</h3>
+                <ul id="example-list" class="list-group">
+                    {{#each appointment}}
+                    <p id="id" data-id={{id}}>Appointment: {{id}}</p>
+                    <p>Appointment Time: {{start_time}}</p>
+                    <p>Customer: {{customer_id}}</p>
+                    <p>Note: {{note}}</p>
+                    <hr>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Updated Appointment Information</h2>
+
+<div class="container">
+    <form id="editappt" class="clearfix mb-4" action="POST">
+        <div class="form-group">
+            <label for="start-time">Appointment DateTime</label>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                <input type="text" id="appt-date" class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker1" />
+                                <div class="input-group-append" data-target="#datetimepicker1"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker1').datetimepicker();
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="note">Note</label>
+            <textarea class="form-control" id="note" placeholder="Note"></textarea>
+        </div>
+        <button id="submit" data-id={{appointment.id}} class="btn btn-primary float-right">Submit</button>
+    </form>
+</div> --}}
+
+
+
+{{!-- THIS IS TRASH --}}
+
+{{!-- <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div> --}}
