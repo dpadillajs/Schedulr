@@ -59,6 +59,31 @@ module.exports = function(app) {
     });
   });
 
+  // Create new customer
+
+  app.post("/api/new-customer", function(req, res) {
+    db.Customer.create({
+      email: req.body.email,
+      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      mName: req.body.mName,
+      phone: req.body.phone,
+      age: req.body.age,
+      gender: req.body.gender,
+      address: req.body.address,
+      zipcode: req.body.zipcode
+    })
+      .then(function(newCustomer) {
+        res.json(newCustomer);
+      })
+      .catch(function(err) {
+        if (err) {
+          res.json(err);
+        }
+      });
+  });
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
