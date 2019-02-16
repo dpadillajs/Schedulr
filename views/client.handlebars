@@ -50,7 +50,7 @@
     <h3>Appointments:</h3>
     <ul id="appointment-list" class="list-group">
       {{#each appointments}}
-      <<<<<<< HEAD <a href="appointment/{{this.id}}">
+      <a href="appointment/{{this.id}}">
         <p>{{id}}: {{start_time}}</p>
         </a>
         <p>{{note}}</p>
@@ -72,7 +72,6 @@
         <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit
             Appointment</button></a>
         <hr>
-        >>>>>>> master
         {{/each}}
     </ul>
   </div>
