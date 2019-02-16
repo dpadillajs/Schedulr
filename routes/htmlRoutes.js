@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
 
   app.get("/dashboard/client", function(req, res) {
     db.Example.findAll({}).then(function(dbExample) {
-      res.render("client_Dashboard", {
+      res.render("dashboard", {
         msg: "This is the index page.  Login here.",
         examples: dbExample
       });

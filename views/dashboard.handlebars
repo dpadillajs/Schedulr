@@ -1,0 +1,33 @@
+<div class="dashboard-bg">
+    <div class="container-fluid client-dashboard-bg d-flex justify-content-center align-items-end">
+        <p class="client-logo">Duke Clinic Dashboard</p> {{!-- USE HANLEBARS TO GET CLIENT NAME --}}
+    </div>
+
+    <ul class="nav custom-nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                aria-controls="home" aria-selected="true">Summary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                aria-controls="profile" aria-selected="false">Customer Portal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                aria-controls="contact" aria-selected="false"><i class="fas fa-user-plus"></i></a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active tab-bg" id="home" role="tabpanel" aria-labelledby="home-tab">
+            {{> dashboard_tabs/summary }}
+        </div>
+        <div class="tab-pane fade tab-bg" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            {{> dashboard_tabs/portal }}
+        </div>
+
+        <div class="tab-pane fade tab-bg px-4 pb-4" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            {{> dashboard_tabs/newCustomer }}
+        </div>
+    </div>
+</div>
