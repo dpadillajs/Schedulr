@@ -26,7 +26,7 @@
 
                     <div class="col-2">
                         <label for="custMiddleName">M.I.</label>
-                        <input required type="text" class="form-control" id="custMiddleName">
+                        <input type="text" class="form-control" id="custMiddleName">
                     </div>
 
                     <div class="col-5">
@@ -43,7 +43,10 @@
 
                     <div class="col-3 col-sm-2">
                         <label for="custGender">Gender</label>
-                        <input required type="text" class="form-control" id="custGender">
+                        <select id="custGender" class="form-control" required>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
                     </div>
 
                     <div class="col-6 col-sm-8">
@@ -132,7 +135,8 @@
                     </div>
                 </div>
 
-                <button type="newMemberBtn" class="btn btn-primary new-member-btn-styling">Submit</button>
+                <button id="createCustomer" type="newMemberBtn"
+                    class="btn btn-primary new-member-btn-styling">Submit</button>
             </form>
         </div>
     </div>

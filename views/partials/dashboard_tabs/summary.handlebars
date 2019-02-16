@@ -70,18 +70,18 @@
 <div class="container appt-container">
     <h3>Appointments:</h3>
     <ul id="appointment-list" class="list-group">
-      {{#each appointments}}
-      <a href="appointment/{{this.id}}">
-        <p>{{id}}: {{start_time}}</p>
+        {{#each appointments}}
+        <a href="appointment/{{this.id}}">
+            <p>{{id}}: {{start_time}}</p>
         </a>
         <p>{{note}}</p>
         <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
         <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}}
-            class="btn btn-danger float-right delete">Edit Appointment</button></a>
+                class="btn btn-danger float-right delete">Edit Appointment</button></a>
         <hr>
         =======
         <a href="appointment/{{this.id}}">
-          <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p>
+            <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p>
         </a>
         <p>{{this.Customer.name}}</p>
         <p>Customer name: {{this.Customer.name}}</p>
@@ -91,11 +91,8 @@
         <p>{{note}}</p>
         <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
         <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit
-            Appointment</button></a>
+                Appointment</button></a>
         <hr>
         {{/each}}
     </ul>
-  </div>
-
-
 </div>
