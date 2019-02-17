@@ -1,14 +1,8 @@
 var db = require("../models");
 
 module.exports = function(app, passport) {
-  // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExample) {
-      res.render("landingPage", {
-        msg: "This is the index page.  Login here.",
-        examples: dbExample
-      });
-    });
+    res.render("landingPage");
   });
 
   app.get("/client", isLoggedIn, function(req, res) {
