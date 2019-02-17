@@ -1,21 +1,28 @@
 <div class="dashboard-bg">
-    <div class="container-fluid client-dashboard-bg  justify-content-center align-items-end">
+    <div class="container-fluid client-dashboard-bg d-flex align-items-center">
         <p class="client-logo pt-4">{{client.bus_name}} Dashboard</p>
         <a href="/logout" class="btn btn-outline-secondary mr-3" id="logout">Logout</a>
     </div>
 
-    <ul class="nav custom-nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav custom-nav nav-tabs pl-4 pt-0" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link custom-nav-links active" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
                 aria-controls="summary" aria-selected="true">Summary</a>
         </li>
+
         <li class="nav-item">
             <a class="nav-link custom-nav-links" id="portal-tab" data-toggle="tab" href="#portal" role="tab"
                 aria-controls="portal" aria-selected="false">Customer Portal</a>
         </li>
+
         <li class="nav-item">
             <a class="nav-link custom-nav-links" id="new-customer-tab" data-toggle="tab" href="#new-customer" role="tab"
                 aria-controls="new-customer" aria-selected="false"><i class="fas fa-user-plus"></i></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link custom-nav-links" id="apptTab" data-toggle="tab" href="#newApptContent" role="tab"
+                aria-controls="apptTab" aria-selected="false"><i class="fas fa-calendar-plus"></i></a>
         </li>
     </ul>
 
@@ -23,6 +30,7 @@
         <div class="tab-pane fade show active tab-bg" id="summary" role="tabpanel" aria-labelledby="summary-tab">
             {{> dashboard_tabs/summary }}
         </div>
+
         <div class="tab-pane fade tab-bg" id="portal" role="tabpanel" aria-labelledby="portal-tab">
             {{> dashboard_tabs/portal }}
         </div>
@@ -30,6 +38,10 @@
         <div class="tab-pane fade tab-bg px-4 pb-4" id="new-customer" role="tabpanel"
             aria-labelledby="new-customer-tab">
             {{> dashboard_tabs/newCustomer }}
+        </div>
+
+        <div class="tab-pane fade tab-bg px-4 pb-4" id="newApptContent" role="tabpanel" aria-labelledby="apptTab">
+            {{> dashboard_tabs/appointment }}
         </div>
     </div>
 </div>
