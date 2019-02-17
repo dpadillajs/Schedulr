@@ -66,33 +66,85 @@
     </div>
 </div>
 
-{{!-- This is the appt list di --}}
-<div class="container appt-container">
-    <h3>Appointments:</h3>
-    <ul id="appointment-list" class="list-group">
-        {{#each appointments}}
-        <a href="appointment/{{this.id}}">
-            <p>{{id}}: {{start_time}}</p>
-        </a>
-        <p>{{note}}</p>
-        <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
-        <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}}
-                class="btn btn-danger float-right delete">Edit Appointment</button></a>
-        <hr>
-        =======
-        <a href="appointment/{{this.id}}">
-            <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p>
-        </a>
-        <p>{{this.Customer.name}}</p>
-        <p>Customer name: {{this.Customer.name}}</p>
-        <p>Customer id: {{this.Customer.id}}</p>
-        <p>Customer phone: {{this.Customer.phone}}</p>
-        <p>Customer email: {{this.Customer.email}}</p>
-        <p>{{note}}</p>
-        <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
-        <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit
-                Appointment</button></a>
-        <hr>
-        {{/each}}
-    </ul>
+{{!-- This is the appt list div --}}
+
+
+<div class="container pt-4">
+    <div class="row">
+        <div class="card mt-4 mx-auto">
+            <div class="card-header">
+                <nav class="navbar navbar-light bg-light justify-content-between">
+                    <a class="navbar-brand"><i class="fas fa-search"></i>&nbsp;&nbsp;&nbsp;Appointments</a>
+                    {{!-- This will actually be a date range selecter and search --}}
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
+            <div class="card-body p-0 h-100">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Appt ID</th>
+                                <th scope="col">Appointment Time</th>
+                                <th scope="col">Cust ID</th>
+                                <th scope="col">Cust Name</th>
+                                <th scope="col">Cust Phone</th>
+                                <th scope="col">Cust Email</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <form>
+                            <tbody>
+                                {{#each appointments}}
+                                <tr>
+                                    <td>{{this.id}}</td>
+                                    <td>{{this.start_time}}</td>
+                                    <td>{{this.Customer.id}}</td>
+                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}</td>
+                                    <td>{{this.Customer.phone}}</td>
+                                    <td>{{this.Customer.email}}</td>
+                                    <td>{{this.note}}</td>
+                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm edit" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapse{{this.id}}">Edit</button></td>
+                                    <td><button type="button" data-id={{this.id}} class="btn btn-danger btn-sm delete">Delete</button></td>
+                                </tr>
+                                <tr class="collapse" id="collapse{{this.id}}">
+                                    <td>{{this.id}}</td>
+                                    <td>                
+                                        <div class="form-group">
+                                            <div class="input-group date" id="datetimepicker{{this.id}}" data-target-input="nearest">
+                                                <input type="text" id="appt-date{{this.id}}" class="form-control datetimepicker-input"
+                                                data-target="#datetimepicker{{this.id}}"> </input>
+                                                <div class="input-group-append" data-target="#datetimepicker{{this.id}}" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{this.Customer.id}}</td>
+                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}</td>
+                                    <td>{{this.Customer.phone}}</td>
+                                    <td>{{this.Customer.email}}</td>
+                                    <td>
+                                        <div class="form-group">
+                                        <input type="text" class="form-control" id="note{{this.id}}" placeholder={{this.note}}></input>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm save-edit">Save</button></td>
+                                    <td><button type="button" data-id={{this.id}} class="btn btn-danger btn-sm discard-edit"data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapse{{this.id}}">Discard</button></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="/assets/js/appointment.js"></script>
