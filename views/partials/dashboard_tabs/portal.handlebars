@@ -31,45 +31,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{#each listOfCustomers}}
                                 <tr>
-                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
+                                    <td> <input type="radio" name="selectedCustomer" value="{{this.id}}">
                                     </td>
-                                    <th scope="row">1</th>
-                                    <td>David</td>
-                                    <td>M</td>
-                                    <td>Padilla</td>
-                                    <td>28</td>
-                                    <td>M</td>
-                                    <td>123 Example Road, Example, EX 10000</td>
-                                    <td>example@gmail.com</td>
-                                    <td>123.456.7890</td>
+                                    <th scope="row">{{this.id}}</th>
+                                    <td> {{this.firstName}}</td>
+                                    <td>{{this.mName}}</td>
+                                    <td>{{this.lastName}}</td>
+                                    <td>{{this.age}}</td>
+                                    <td>{{this.gender}}</td>
+                                    <td>{{this.address}}, {{this.zipcode}}</td>
+                                    <td>{{this.email}}</td>
+                                    <td>{{this.phone}}</td>
                                 </tr>
-                                <tr>
-                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
-                                    </td>
-                                    <th scope="row">2</th>
-                                    <td>David</td>
-                                    <td>M</td>
-                                    <td>Padilla</td>
-                                    <td>28</td>
-                                    <td>M</td>
-                                    <td>123 Example Road, Example, EX 10000</td>
-                                    <td>example@gmail.com</td>
-                                    <td>123.456.7890</td>
-                                </tr>
-                                <tr>
-                                    <td> <input type="radio" name="selectedCustomer" value="uniqueID">
-                                    </td>
-                                    <th scope="row">3</th>
-                                    <td>David</td>
-                                    <td>M</td>
-                                    <td>Padilla</td>
-                                    <td>28</td>
-                                    <td>M</td>
-                                    <td>123 Example Road, Example, EX 10000</td>
-                                    <td>example@gmail.com</td>
-                                    <td>123.456.7890</td>
-                                </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>
