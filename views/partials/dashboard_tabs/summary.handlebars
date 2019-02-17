@@ -105,37 +105,50 @@
                                     <td>{{this.id}}</td>
                                     <td>{{this.start_time}}</td>
                                     <td>{{this.Customer.id}}</td>
-                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}</td>
+                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}
+                                    </td>
                                     <td>{{this.Customer.phone}}</td>
                                     <td>{{this.Customer.email}}</td>
                                     <td>{{this.note}}</td>
-                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm edit" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapse{{this.id}}">Edit</button></td>
-                                    <td><button type="button" data-id={{this.id}} class="btn btn-danger btn-sm delete">Delete</button></td>
+                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm edit"
+                                            data-toggle="collapse" data-target="#collapse{{this.id}}"
+                                            aria-expanded="false" aria-controls="collapse{{this.id}}">Edit</button></td>
+                                    <td><button type="button" data-id={{this.id}}
+                                            class="btn btn-danger btn-sm delete">Delete</button></td>
                                 </tr>
                                 <tr class="collapse" id="collapse{{this.id}}">
                                     <td>{{this.id}}</td>
-                                    <td>                
+                                    <td>
                                         <div class="form-group">
-                                            <div class="input-group date" id="datetimepicker{{this.id}}" data-target-input="nearest">
-                                                <input type="text" id="appt-date{{this.id}}" class="form-control datetimepicker-input"
-                                                data-target="#datetimepicker{{this.id}}"> </input>
-                                                <div class="input-group-append" data-target="#datetimepicker{{this.id}}" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            <div class="input-group date" id="datetimepicker{{this.id}}"
+                                                data-target-input="nearest">
+                                                <input type="text" id="appt-date{{this.id}}"
+                                                    class="form-control datetimepicker-input"
+                                                    data-target="#datetimepicker{{this.id}}"> </input>
+                                                <div class="input-group-append" data-target="#datetimepicker{{this.id}}"
+                                                    data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>{{this.Customer.id}}</td>
-                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}</td>
+                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}
+                                    </td>
                                     <td>{{this.Customer.phone}}</td>
                                     <td>{{this.Customer.email}}</td>
                                     <td>
                                         <div class="form-group">
-                                        <input type="text" class="form-control" id="note{{this.id}}" placeholder={{this.note}}></input>
+                                            <input type="text" class="form-control" id="note{{this.id}}"
+                                                placeholder={{this.note}}></input>
                                         </div>
                                     </td>
-                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm save-edit">Save</button></td>
-                                    <td><button type="button" data-id={{this.id}} class="btn btn-danger btn-sm discard-edit"data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapse{{this.id}}">Discard</button></td>
+                                    <td><button type="button" data-id={{this.id}}
+                                            class="btn btn-primary btn-sm save-edit">Save</button></td>
+                                    <td><button type="button" data-id={{this.id}}
+                                            class="btn btn-danger btn-sm discard-edit" data-toggle="collapse"
+                                            data-target="#collapse{{this.id}}" aria-expanded="false"
+                                            aria-controls="collapse{{this.id}}">Discard</button></td>
                                 </tr>
                                 {{/each}}
                             </tbody>

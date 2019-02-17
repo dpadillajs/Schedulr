@@ -63,7 +63,12 @@ $("#createCustomer").on("click", function(event) {
         html: alertmessage
       });
     } else {
-      Swal.fire("A new customer has been added!");
+      Swal.fire({
+        title: "A new customer has been added!",
+        showConfirmButton: true
+      }).then(function() {
+        location.reload();
+      });
     }
   });
 });
