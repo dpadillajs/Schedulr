@@ -1,7 +1,8 @@
-var $customer = $("#customer");
-var $startTime = $("#appt-date");
-var $note = $("#note");
-var $submitBtn = $("#submit");
+// var $customer = $("#customer");
+// var $startTime = $("#appt-date");
+// var $note = $("#note");
+// var $submitBtn = $("#submit");
+var $editBtn = $(".save-edit");
 var $cancBtn = $(".delete");
 
 var API = {
@@ -30,27 +31,27 @@ var API = {
   }
 };
 
-var newAppointment = function(event) {
-  event.preventDefault();
-  console.log($startTime.val());
-  console.log("saving - newAppt 1");
+// var newAppointment = function(event) {
+//   event.preventDefault();
+//   console.log($startTime.val());
+//   console.log("saving - newAppt 1");
 
-  var appt = {
-    customer_id: $customer.val().trim(),
-    business_id: $submitBtn.attr("data-id"),
-    start_time: $startTime.val().trim(),
-    note: $note.val().trim()
-  };
+//   var appt = {
+//     customer_id: $customer.val().trim(),
+//     business_id: $submitBtn.attr("data-id"),
+//     start_time: $startTime.val().trim(),
+//     note: $note.val().trim()
+//   };
 
-  if (!(appt.customer_id && appt.business_id && appt.start_time && appt.note)) {
-    alert("Please fill out all fields");
-    return;
-  }
+//   if (!(appt.customer_id && appt.business_id && appt.start_time && appt.note)) {
+//     alert("Please fill out all fields");
+//     return;
+//   }
 
-  API.saveAppointment(appt).then(function() {
-    location.reload();
-  });
-};
+//   API.saveAppointment(appt).then(function() {
+//     location.reload();
+//   });
+// };
 
 var deletedAppt = function(event) {
   event.preventDefault();
@@ -61,6 +62,33 @@ var deletedAppt = function(event) {
   });
 };
 
-$submitBtn.on("click", newAppointment);
+var editedAppt = function(event) {
+  event.preventDefault();
+  var editID = $(this).attr("data-id");
+  var newDate = $("#appt-date" + editID)
+    .val()
+    .trim();
+  var newNote = $("#note" + editID)
+    .val()
+    .trim();
+  console.log(editID + " " + newDate + " " + newNote);
 
+  var appt = {
+    id: editID,
+    start_time: newDate,
+    note: newNote
+  };
+
+  $.ajax({
+    method: "PUT",
+    url: "/api/appointments",
+    data: appt
+  }).then(function() {
+    location.reload();
+  });
+};
+
+// $submitBtn.on("click", newAppointment);
+
+$editBtn.on("click", editedAppt);
 $cancBtn.on("click", deletedAppt);
