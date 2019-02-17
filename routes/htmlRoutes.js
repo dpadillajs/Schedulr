@@ -11,35 +11,36 @@ module.exports = function(app, passport) {
     });
   });
 
-  // app.get("/dashboard/client", function(req, res) {
-  //   db.Example.findAll({}).then(function(dbExample) {
-  //     res.render("dashboard", {
-  //       msg: "This is the index page.  Login here.",
-  //       examples: dbExample
-  //     });
-  //   });
-  // });
-
   app.get("/client", isLoggedIn, function(req, res) {
-    db.Appointment.findAll({
+    db.Client.findOne({
       where: {
-        business_id: req.user.id
-      },
-      include: [
-        {
-          model: db.Client,
-          as: "Client"
+        id: req.user.id
+      }
+    }).then(function(dbClient) {
+      db.Appointment.findAll({
+        where: {
+          business_id: req.user.id
         },
-        {
-          model: db.Customer,
-          as: "Customer"
-        }
-      ]
-    }).then(function(dbAppt) {
-      res.render("dashboard", {
-        msg: "Welcome!",
-        bus_id: req.params.client_id,
-        appointments: dbAppt
+        include: [
+          {
+            model: db.Client,
+            as: "Client"
+          },
+          {
+            model: db.Customer,
+            as: "Customer"
+          }
+        ]
+      }).then(function(dbAppt) {
+        db.Customer.findAll({}).then(function(dbCustomer) {
+          res.render("dashboard", {
+            msg: "Welcome!",
+            bus_id: req.params.client_id,
+            client: dbClient,
+            appointments: dbAppt,
+            listOfCustomers: dbCustomer
+          });
+        });
       });
     });
   });

@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
     mName: {
       type: DataTypes.STRING
     },
+    gender: {
+      type: DataTypes.STRING
+    },
     phone: {
       type: DataTypes.STRING,
       validate: {

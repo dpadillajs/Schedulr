@@ -1,7 +1,7 @@
 $("#createCustomer").on("click", function(event) {
   event.preventDefault();
   var newCustomer = {};
-  var address;
+  var address = "";
   newCustomer.email = $("#custEmail")
     .val()
     .trim();
@@ -45,10 +45,6 @@ $("#createCustomer").on("click", function(event) {
   newCustomer.zipcode = $("#custZipCode")
     .val()
     .trim();
-  $(this)
-    .closest("form")
-    .find("input")
-    .val("");
   $.ajax({
     method: "POST",
     url: "/api/new-customer",
@@ -66,6 +62,8 @@ $("#createCustomer").on("click", function(event) {
         title: "Oops...",
         html: alertmessage
       });
+    } else {
+      Swal.fire("A new customer has been added!");
     }
   });
 });
