@@ -1,11 +1,11 @@
-<div class="container p-4">
+<div class="container-fluid p-4">
     <div class="row">
         <div class="card mt-4 mx-auto portal-card-styling">
             <div class="card-header customer-navbar-styling">
                 <nav class="navbar navbar-light customer-navbar-styling justify-content-between">
                     <a class="navbar-brand">Customer Lookup</a>
                     <form class="form-inline">
-                        <input class="form-control mr-sm-2 search-width-styling" type="search"
+                        <input class="form-control mr-sm-2 search-width-styling responsive-search-icon" type="search"
                             placeholder="Search by Name, Email, or ID" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
                                 class="fas fa-search"></i></button>
@@ -20,14 +20,14 @@
                                 <tr>
                                     <th scope="col">Select</th>
                                     <th scope="col">ID</th>
-                                    <th scope="col">First</th>
+                                    <th scope="col" class="responsive-name-cols">First Name</th>
                                     <th scope="col">MI</th>
-                                    <th scope="col">Last</th>
+                                    <th scope="col" class="responsive-name-cols">Last Name</th>
                                     <th scope="col">Age</th>
                                     <th scope="col">Sex</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col" class="responsive-address">Address</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Contact Number</th>
+                                    <th scope="col" class="responsive-contact-number">Contact Number</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,12 +62,13 @@
                             <table class="table table-striped mb-0">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Appt ID</th>
+                                        <th scope="col" class="responsive-appt-id">Appt ID</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Time</th>
                                         <th scope="col">Notes</th>
                                         <th class="text-center" scope="col">Edit</th>
                                         <th class="text-center" scope="col">Delete</th>
+                                        <th scope="col" class="responsive-save-changes"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,15 +78,17 @@
                                         <td>08:30 AM</td>
                                         <td>Blood work results.</td>
                                         <td class="text-center edit-del-styling">
-                                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2"
-                                                role="button" aria-expanded="false" aria-controls="collapseExample2">
-                                                <i class="fas fa-edit"></i>
+                                            <a class="btn btn-primary edit-del-effect" data-toggle="collapse"
+                                                href="#collapseExample2" role="button" aria-expanded="false"
+                                                aria-controls="collapseExample2">
+                                                <i class="fas fa-edit edit-del-icons"></i>
                                             </a>
                                         </td>
-                                        <td class="text-center edit-del-styling"> <a class="btn btn-primary"
-                                                role="button">
-                                                <i class="fas fa-backspace"></i>
+                                        <td class="text-center edit-del-styling"> <a
+                                                class="btn btn-primary edit-del-effect" role="button">
+                                                <i class="fas fa-backspace edit-del-icons"></i>
                                             </a></td>
+                                        <td></td>
                                     </tr>
 
                                     <tr class="collapse" id="collapseExample2" data-parent="#accordion-1">
@@ -96,8 +99,11 @@
                                         </td>
                                         <td> <input type="text" class="form-control" placeholder="Notes">
                                         </td>
-                                        <td class="text-center edit-del-styling"></td>
-                                        <td class="text-center edit-del-styling"></td>
+                                        <td class="text-center"></td>
+                                        <td></td>
+                                        <td class="text-center"><button type="button" class="btn btn-primary">Save
+                                                Changes</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -108,21 +114,3 @@
         </div>
     </div>
 </div>
-{{!-- 
-<p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-        aria-controls="collapseExample">
-        <i class="fas fa-edit"></i>
-    </a>
-
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample">
-        Button with data-target
-    </button>
-</p>
-<div class="collapse" id="collapseExample">
-    <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-    </div>
-</div> --}}

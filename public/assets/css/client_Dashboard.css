@@ -157,3 +157,44 @@
   position: absolute;
   right: 0;
 }
+
+.edit-del-icons {
+  color: white;
+}
+
+.edit-del-effect:hover {
+  opacity: 0.9;
+}
+
+.edit-del-effect:hover .edit-del-icons {
+  transform: scale(1.1);
+}
+
+.responsive-address {
+  min-width: 250px;
+  width: 250px;
+}
+
+.responsive-contact-number {
+  min-width: 152px;
+  width: 152px;
+}
+
+.responsive-name-cols {
+  min-width: 110px;
+  width: 110px;
+}
+
+.responsive-search-icon {
+  margin-right: 5px;
+}
+
+.responsive-appt-id {
+  min-width: 82px;
+  width: 82px;
+}
+
+.responsive-save-changes {
+  min-width: 154px;
+  width: 154px;
+}
