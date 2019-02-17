@@ -1,0 +1,61 @@
+<div class="container new-member-styling">
+    <div class="card">
+        <div class="card-header new-member-header-styling">
+            <h4 class="mb-0">New Appointment</h4>
+        </div>
+
+        <div class="card-body h-100">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="custName">Existing Customer</label>
+                        <select id="custName" class="form-control" required>
+                            {{#each listOfCustomers}}
+                            <option data-id={{this.id}}>{{this.firstName}} {{this.mName}} {{this.lastName}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                  
+                    <div class="form-group col-md-6">
+                        <label for="newCust">New Customer</label>
+                        <br>
+                        <a href="#new-customer"><button id="newCust" type="button"
+                            class="btn btn-primary new-member-btn-styling">Create Customer</button></a>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="appt-time">Appointment Date and Time</label>
+                        <br>
+                        <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="text" id="appt-date" class="form-control datetimepicker-input"
+                            data-target="#datetimepicker1" />
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                        </div>
+                    <script type="text/javascript">
+                        $(function () {
+                        $('#datetimepicker1').datetimepicker();
+                        });
+                    </script>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6 col-sm-8">
+                        <label for="custNote">Note</label>
+                        <textarea type="textarea" class="form-control" id="custNote"></textarea>
+                    </div>
+                </div>
+                <br>
+                <button id="createAppt" type="newApptBtn"
+                    class="btn btn-primary new-member-btn-styling">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
