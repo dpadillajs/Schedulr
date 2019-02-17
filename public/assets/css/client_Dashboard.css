@@ -10,6 +10,7 @@
   font-family: "Archivo", sans-serif;
   text-shadow: 4px 4px 8px #000000;
   margin-bottom: -15px;
+  text-align: center;
 }
 
 .nav-tabs .nav-link.active {
@@ -153,4 +154,8 @@
 
 .edit-del-styling {
   font-size: 20px;
+}
+#logout {
+  position: absolute;
+  right: 0;
 }
