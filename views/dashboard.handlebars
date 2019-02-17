@@ -6,12 +6,12 @@
 
     <ul class="nav custom-nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link custom-nav-links active" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
-                aria-controls="summary" aria-selected="true">Summary</a>
+            <a class="nav-link custom-nav-links" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
+                aria-controls="summary" aria-selected="false">Summary</a>
         </li>
         <li class="nav-item">
             <a class="nav-link custom-nav-links" id="portal-tab" data-toggle="tab" href="#portal" role="tab"
-                aria-controls="portal" aria-selected="false">Customer Portal</a>
+                aria-controls="portal" aria-selected="true">Customer Portal</a>
         </li>
         <li class="nav-item">
             <a class="nav-link custom-nav-links" id="new-customer-tab" data-toggle="tab" href="#new-customer" role="tab"
@@ -20,7 +20,7 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active tab-bg" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+        <div class="tab-pane fade show tab-bg" id="summary" role="tabpanel" aria-labelledby="summary-tab">
             {{> dashboard_tabs/summary }}
         </div>
         <div class="tab-pane fade tab-bg" id="portal" role="tabpanel" aria-labelledby="portal-tab">

@@ -52,55 +52,13 @@
                 </form>
             </div>
             <div class="card-header customer-details-header-bg" id="accordion">
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                <a id="app-details" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
                     aria-expanded="false" aria-controls="collapseExample">
                     View Details
                 </a>
                 <div class="collapse mt-3" id="collapseExample" data-parent="#accordion">
                     <div class="card card-body p-0 h-100">
-                        <div class="table-responsive">
-                            <table class="table table-striped mb-0">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Appt ID</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Notes</th>
-                                        <th class="text-center" scope="col">Edit</th>
-                                        <th class="text-center" scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr id="accordion-1">
-                                        <th scope="row">1</th>
-                                        <td>Tue 01 Mar 2019</td>
-                                        <td>08:30 AM</td>
-                                        <td>Blood work results.</td>
-                                        <td class="text-center edit-del-styling">
-                                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2"
-                                                role="button" aria-expanded="false" aria-controls="collapseExample2">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td class="text-center edit-del-styling"> <a class="btn btn-primary"
-                                                role="button">
-                                                <i class="fas fa-backspace"></i>
-                                            </a></td>
-                                    </tr>
-
-                                    <tr class="collapse" id="collapseExample2" data-parent="#accordion-1">
-                                        <th scope="row"></th>
-                                        <td> <input type="text" class="form-control" placeholder="Date">
-                                        </td>
-                                        <td> <input type="text" class="form-control" placeholder="Time">
-                                        </td>
-                                        <td> <input type="text" class="form-control" placeholder="Notes">
-                                        </td>
-                                        <td class="text-center edit-del-styling"></td>
-                                        <td class="text-center edit-del-styling"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="table-responsive" id="custApp">
                         </div>
                     </div>
                 </div>

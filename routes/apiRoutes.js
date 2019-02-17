@@ -84,6 +84,34 @@ module.exports = function(app) {
       });
   });
 
+  // Show appointments for current customer
+
+  app.get("/api/customer-app", function(req, res) {
+    console.log("customerid");
+    console.log(req.query.customerId);
+    db.Appointment.findAll({
+      where: {
+        ClientId: req.user.id,
+        CustomerId: req.query.customerId
+      },
+      include: [
+        {
+          model: db.Client,
+          as: "Client"
+        },
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
+    }).then(function(data) {
+      res.render("customerAppointments", {
+        app: data,
+        layout: false
+      });
+    });
+  });
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();

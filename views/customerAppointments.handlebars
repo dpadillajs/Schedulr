@@ -1,0 +1,52 @@
+<div class="table-responsive">
+    <table class="table table-striped mb-0">
+        <thead>
+            <tr>
+                <th scope="col">Appt ID</th>
+                <th scope="col">Appointment Time</th>
+                <th scope="col">Notes</th>
+                <th class="text-center" scope="col">Edit</th>
+                <th class="text-center" scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each app}}
+            <tr id="accordion-{{this.id}}">
+                <th scope="row">{{this.id}}</th>
+                <td>{{this.start_time}}</td>
+                <td>{{this.note}}</td>
+                <td class="text-center edit-del-styling">
+                    <a class="btn btn-primary edit" data-edit="{{this.id}}" data-toggle="collapse"
+                        href="#collapseExample{{this.id}}" role="button" aria-expanded="false"
+                        aria-controls="collapseExample{{this.id}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td class="text-center edit-del-styling"> <a class="btn btn-primary delete" data-delete="{{this.id}}"
+                        role="button">
+                        <i class="fas fa-backspace"></i>
+                    </a></td>
+            </tr>
+
+            <tr class="collapse" id="collapseExample{{this.id}}" data-parent="#accordion-{{this.id}}">
+                <th scope="row"></th>
+                <td>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepickerportal{{this.id}}" data-target-input="nearest">
+                            <input type="text" id="appt-date{{this.id}}" class="form-control datetimepicker-input"
+                                data-target="#datetimepickerportal{{this.id}}"> </input>
+                            <div class="input-group-append" data-target="#datetimepickerportal{{this.id}}"
+                                data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td> <input type="text" id="notes{{this.id}}" class="form-control" placeholder="Notes">
+                </td>
+                <td class="text-center edit-del-styling"></td>
+                <td class="text-center edit-del-styling"></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
