@@ -2,11 +2,12 @@
     <table class="table table-striped mb-0">
         <thead>
             <tr>
-                <th scope="col">Appt ID</th>
+                <th scope="col" class="responsive-appt-id">Appt ID</th>
                 <th scope="col">Appointment Time</th>
                 <th scope="col">Notes</th>
                 <th class="text-center" scope="col">Edit</th>
                 <th class="text-center" scope="col">Delete</th>
+                <th scope="col" class="responsive-save-changes"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,16 +17,17 @@
                 <td>{{this.start_time}}</td>
                 <td>{{this.note}}</td>
                 <td class="text-center edit-del-styling">
-                    <a class="btn btn-primary edit" data-edit="{{this.id}}" data-toggle="collapse"
+                    <a class="btn btn-primary edit-del-effect" data-edit="{{this.id}}" data-toggle="collapse"
                         href="#collapseExample{{this.id}}" role="button" aria-expanded="false"
                         aria-controls="collapseExample{{this.id}}">
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit edit-del-icons"></i>
                     </a>
                 </td>
-                <td class="text-center edit-del-styling"> <a class="btn btn-primary delete" data-delete="{{this.id}}"
-                        role="button">
-                        <i class="fas fa-backspace"></i>
+                <td class="text-center edit-del-styling"> <a class="btn btn-primary edit-del-effect"
+                        data-delete="{{this.id}}" role="button">
+                        <i class="fas fa-backspace edit-del-icons"></i>
                     </a></td>
+                <td class="text-center edit-del-styling"></td>
             </tr>
 
             <tr class="collapse" id="collapseExample{{this.id}}" data-parent="#accordion-{{this.id}}">
@@ -44,8 +46,9 @@
                 </td>
                 <td> <input type="text" id="notes{{this.id}}" class="form-control" placeholder="Notes">
                 </td>
-                <td class="text-center edit-del-styling"></td>
-                <td class="text-center edit-del-styling"></td>
+                <td class="text-center"><button type="button" class="btn btn-primary" id="editApptPortalBtn">Save
+                        Changes</button>
+                </td>
             </tr>
             {{/each}}
         </tbody>
