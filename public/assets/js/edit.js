@@ -2,7 +2,6 @@ var $startTime = $("#appt-date");
 var $note = $("#note");
 var $id = $("#id");
 var $submitBtn = $("#submit");
-var $clientID = 
 
 var editedAppt = function() {
   event.preventDefault();
