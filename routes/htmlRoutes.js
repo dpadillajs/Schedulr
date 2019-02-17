@@ -20,10 +20,10 @@ module.exports = function(app, passport) {
   //   });
   // });
 
-  app.get("/client/:client_id", isLoggedIn, function(req, res) {
+  app.get("/client", isLoggedIn, function(req, res) {
     db.Appointment.findAll({
       where: {
-        business_id: req.params.client_id
+        business_id: req.user.id
       },
       include: [
         {
@@ -85,7 +85,7 @@ module.exports = function(app, passport) {
         if (err) {
           return next(err);
         }
-        res.json({ id: user.dataValues.id });
+        res.json({ valid: true });
       });
     })(req, res, next);
   });
@@ -102,7 +102,7 @@ module.exports = function(app, passport) {
           if (err) {
             return next(err);
           }
-          res.json({ id: user.id });
+          res.json({ valid: true });
         });
       }
     })(req, res, next);

@@ -21,11 +21,14 @@ $("#clientSignup").on("click", function(event) {
     url: "/signup",
     data: obj
   }).then(function(response) {
-    if (response.id) {
-      window.location.replace("/client/" + response.id);
-    }
     if (response.message) {
-      alert(response.message);
+      Swal.fire({
+        type: "error",
+        title: "Oops...",
+        text: response.message
+      });
+    } else {
+      window.location.replace("/client");
     }
   });
 });
@@ -44,11 +47,14 @@ $("#clientLogin").on("click", function(event) {
     url: "/signin",
     data: login
   }).then(function(response) {
-    if (response.id) {
-      window.location.replace("/client/" + response.id);
-    }
     if (response.message) {
-      alert(response.message);
+      Swal.fire({
+        type: "error",
+        title: "Oops...",
+        text: response.message
+      });
+    } else {
+      window.location.replace("/client");
     }
   });
 });
