@@ -52,36 +52,30 @@
       {{#each appointments}}
       <a href="appointment/{{this.id}}">
         <p>{{id}}: {{start_time}}</p>
-        </a>
-        <p>{{note}}</p>
-        <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
-        <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}}
-            class="btn btn-danger float-right delete">Edit Appointment</button></a>
-        <hr>
-        =======
-        <a href="appointment/{{this.id}}">
-          <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p>
-        </a>
-        <p>{{this.Customer.name}}</p>
-        <p>Customer name: {{this.Customer.name}}</p>
-        <p>Customer id: {{this.Customer.id}}</p>
-        <p>Customer phone: {{this.Customer.phone}}</p>
-        <p>Customer email: {{this.Customer.email}}</p>
-        <p>{{note}}</p>
-        <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
-        <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit
-            Appointment</button></a>
-        <hr>
-        {{/each}}
+      </a>
+      <p>{{note}}</p>
+      <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
+      <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right delete">Edit
+          Appointment</button></a>
+      <hr>
+      =======
+      <a href="appointment/{{this.id}}">
+        <p>{{this.Client.bus_name}} appointment {{id}}: {{start_time}}</p>
+      </a>
+      <p>{{this.Customer.name}}</p>
+      <p>Customer name: {{this.Customer.name}}</p>
+      <p>Customer id: {{this.Customer.id}}</p>
+      <p>Customer phone: {{this.Customer.phone}}</p>
+      <p>Customer email: {{this.Customer.email}}</p>
+      <p>{{note}}</p>
+      <button data-id={{this.id}} class="btn btn-danger float-right delete">Cancel Appointment</button>
+      <a href="appointment/{{this.id}}"><button id="edit" data-id={{id}} class="btn btn-danger float-right">Edit
+          Appointment</button></a>
+      <hr>
+      {{/each}}
     </ul>
   </div>
   <div class="col-2">
     <a href="/logout" class="btn btn-outline-secondary">Logout</a>
   </div>
 </div>
-</div>
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-{{!-- <script src="/assets/js/appointment.js"></script> --}}

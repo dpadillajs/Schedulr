@@ -26,11 +26,28 @@ module.exports = function(app, passport) {
           }
         ]
       }).then(function(dbAppt) {
-        db.Customer.findAll({}).then(function(dbCustomer) {
-          res.render("dashboard", {
-            client: dbClient,
-            appointments: dbAppt,
-            listOfCustomers: dbCustomer
+        db.Appointment.count({
+          where: {
+            business_id: req.user.id
+          },
+          include: [
+            {
+              model: db.Client,
+              as: "Client"
+            },
+            {
+              model: db.Customer,
+              as: "Customer"
+            }
+          ]
+        }).then(function(dbApptCount) {
+          db.Customer.findAll({}).then(function(dbCustomer) {
+            res.render("dashboard", {
+              client: dbClient,
+              appointments: dbAppt,
+              listOfCustomers: dbCustomer,
+              numOfAppointments: dbApptCount
+            });
           });
         });
       });
