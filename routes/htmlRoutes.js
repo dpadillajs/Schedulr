@@ -3,12 +3,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExample) {
-      res.render("landingPage", {
-        msg: "This is the index page.  Login here.",
-        examples: dbExample
-      });
-    });
+    res.render("landingPage");
   });
 
   app.get("/client", isLoggedIn, function(req, res) {
@@ -34,8 +29,6 @@ module.exports = function(app, passport) {
       }).then(function(dbAppt) {
         db.Customer.findAll({}).then(function(dbCustomer) {
           res.render("dashboard", {
-            msg: "Welcome!",
-            bus_id: req.params.client_id,
             client: dbClient,
             appointments: dbAppt,
             listOfCustomers: dbCustomer

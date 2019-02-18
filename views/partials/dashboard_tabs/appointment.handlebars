@@ -8,8 +8,8 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="custName">Existing Customer</label>
-                        <select id="custName" class="form-control" required>
+                        <label for="custNames">Existing Customer</label>
+                        <select id="custNames" class="form-control customerName" required>
                             {{#each listOfCustomers}}
                             <option data-id={{this.id}}>{{this.firstName}} {{this.mName}} {{this.lastName}}</option>
                             {{/each}}
@@ -26,10 +26,10 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="appt-time">Appointment Date and Time</label>
+                        <label for="appt-time-new">Appointment Date and Time</label>
                         <br>
                         <div class="form-group">
-                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <div class="input-group date" required id="datetimepicker1" data-target-input="nearest">
                             <input type="text" id="appt-date" class="form-control datetimepicker-input"
                             data-target="#datetimepicker1" />
                             <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
@@ -47,15 +47,17 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="col-6 col-sm-8">
+                    <div class="form-group scol-6 col-sm-8">
                         <label for="custNote">Note</label>
-                        <textarea type="textarea" class="form-control" id="custNote"></textarea>
+                        <textarea class="form-control" id="custNote"></textarea>
                     </div>
                 </div>
                 <br>
-                <button id="createAppt" type="newApptBtn"
+                <button id="createAppt" data-id={{client.id}} type="button"
                     class="btn btn-primary new-member-btn-styling">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="/assets/js/appointment.js"></script>
