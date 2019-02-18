@@ -198,3 +198,24 @@
   min-width: 154px;
   width: 154px;
 }
+
+.responsive-appt-time {
+  min-width: 317px;
+}
+
+.responsive-appt-notes {
+  min-width: 210px;
+}
+
+#editApptPortalBtn:hover,
+#saveSummaryApptBtn:hover {
+  opacity: 0.9;
+}
+
+#app-details:hover {
+  background: rgb(109, 117, 125);
+}
+
+.responsive-appt-fullName {
+  min-width: 120px;
+}

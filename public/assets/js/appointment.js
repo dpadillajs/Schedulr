@@ -100,3 +100,15 @@ var editedAppt = function(event) {
 $submitBtn.on("click", newAppointment);
 $editBtn.on("click", editedAppt);
 $cancBtn.on("click", deletedAppt);
+
+// Time Loop Functionality
+var time = function() {
+  $("#displayTime").text(moment().format("LT"));
+  setTimeout(time, 60000);
+};
+
+// Summary Tab Display Blocks
+$("#displayMonth").text(moment().format("MMMM"));
+$("#displayDate").text(moment().format("DD"));
+$("#displayDay").text(moment().format("dddd"));
+$("#displayTime").text(time);
