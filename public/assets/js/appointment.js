@@ -1,8 +1,8 @@
-var $customer = $("#custNames");
 var $startTime = $("#appt-date");
 var $submitBtn = $("#createAppt");
 var $editBtn = $(".save-edit");
 var $cancBtn = $(".delete");
+var $custNote = $("#custNote");
 
 var API = {
   saveAppointment: function(appt) {
@@ -37,7 +37,7 @@ var newAppointment = function(event) {
     .find(":selected")
     .data("id");
   var busID = $(this).attr("data-id");
-  var noteText = $("#custNote").val().trim();
+  var noteText = $custNote.val().trim();
   var apptTime = $startTime.val().trim();
 
   console.log("Cust ID: " + custID);
