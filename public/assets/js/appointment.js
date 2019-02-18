@@ -1,9 +1,8 @@
-// var $customer = $("#customer");
-// var $startTime = $("#appt-date");
-// var $note = $("#note");
-// var $submitBtn = $("#submit");
+var $startTime = $("#appt-date");
+var $submitBtn = $("#createAppt");
 var $editBtn = $(".save-edit");
 var $cancBtn = $(".delete");
+var $custNote = $("#custNote");
 
 var API = {
   saveAppointment: function(appt) {
@@ -31,27 +30,37 @@ var API = {
   }
 };
 
-// var newAppointment = function(event) {
-//   event.preventDefault();
-//   console.log($startTime.val());
-//   console.log("saving - newAppt 1");
+var newAppointment = function(event) {
+  event.preventDefault();
+  console.log("saving - newAppt 1");
+  var custID = $("select.customerName")
+    .find(":selected")
+    .data("id");
+  var busID = $(this).attr("data-id");
+  var noteText = $custNote.val().trim();
+  var apptTime = $startTime.val().trim();
 
-//   var appt = {
-//     customer_id: $customer.val().trim(),
-//     business_id: $submitBtn.attr("data-id"),
-//     start_time: $startTime.val().trim(),
-//     note: $note.val().trim()
-//   };
+  console.log("Cust ID: " + custID);
+  console.log("Bus ID: " + busID);
+  console.log("Note: " + noteText);
+  console.log("Appt Time: " + apptTime);
 
-//   if (!(appt.customer_id && appt.business_id && appt.start_time && appt.note)) {
-//     alert("Please fill out all fields");
-//     return;
-//   }
+  var appt = {
+    customer_id: custID,
+    business_id: busID,
+    start_time: apptTime,
+    note: noteText
+  };
 
-//   API.saveAppointment(appt).then(function() {
-//     location.reload();
-//   });
-// };
+  if (!(appt.customer_id && appt.business_id && appt.start_time && appt.note)) {
+    alert("Please fill out all fields");
+    return;
+  }
+
+  API.saveAppointment(appt).then(function() {
+    location.reload();
+  });
+};
 
 var deletedAppt = function(event) {
   event.preventDefault();
@@ -88,7 +97,6 @@ var editedAppt = function(event) {
   });
 };
 
-// $submitBtn.on("click", newAppointment);
-
+$submitBtn.on("click", newAppointment);
 $editBtn.on("click", editedAppt);
 $cancBtn.on("click", deletedAppt);

@@ -28,8 +28,6 @@ module.exports = function(app, passport) {
       }).then(function(dbAppt) {
         db.Customer.findAll({}).then(function(dbCustomer) {
           res.render("dashboard", {
-            msg: "Welcome!",
-            bus_id: req.params.client_id,
             client: dbClient,
             appointments: dbAppt,
             listOfCustomers: dbCustomer
