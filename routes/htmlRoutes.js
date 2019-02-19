@@ -55,8 +55,10 @@ module.exports = function(app, passport) {
           } else if (req.query) {
             var key = req.query.stype;
             var val = req.query.sval;
+            var ob = {};
+            ob[key] = val;
             db.Customer.findAll({
-              where: { [key]: val }
+              where: ob
             }).then(function(dbCustomer) {
               res.render("dashboard", {
                 client: dbClient,
