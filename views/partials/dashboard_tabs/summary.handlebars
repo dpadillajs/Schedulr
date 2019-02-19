@@ -33,24 +33,24 @@
     <div class="row">
         <div class="col-12 col-sm-6 col-lg-3 summary-box summary-date">
             <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header month-header">November</div>
+                <div class="card-header month-header" id="displayMonth"></div>
                 <div class="card-body card-body-padding">
-                    <p class="card-text summary-date-text">14</p>
+                    <p class="card-text summary-date-text" id="displayDate"></p>
                 </div>
-                <div class="card-header month-header">Thursday</div>
+                <div class="card-header month-header" id="displayDay"></div>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 summary-box">
             <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-body card-body-padding summary-time">
-                    <p class="card-text time-text">2:15 PM</p>
+                    <p class="card-text time-text" id="displayTime"></p>
                 </div>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 summary-box summary-appt">
             <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-body card-body-padding">
-                    <p class="card-text appt-text">5</p>
+                    <p class="card-text appt-text">{{numOfAppointments}}</p>
                 </div>
                 <div class="card-header appt-header">Appointments</div>
             </div>
@@ -69,33 +69,36 @@
 {{!-- This is the appt list div --}}
 
 
-<div class="container pt-4">
-    <div class="row">
-        <div class="card mt-4 mx-auto">
-            <div class="card-header">
-                <nav class="navbar navbar-light bg-light justify-content-between">
-                    <a class="navbar-brand"><i class="fas fa-search"></i>&nbsp;&nbsp;&nbsp;Appointments</a>
+<div class="container-fluid p-4" style="
+    padding-top: 5px!important">
+    <div class=" row">
+        <div class="card mt-0 mx-auto portal-card-styling">
+            <div class="card-header customer-navbar-styling">
+                <nav class="navbar navbar-light customer-navbar-styling justify-content-between">
+                    <a class="navbar-brand">Appointments</a>
                     {{!-- This will actually be a date range selecter and search --}}
                     <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input class="form-control mr-sm-2 search-width-styling responsive-search-icon" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                class="fas fa-search"></i></button>
                     </form>
                 </nav>
             </div>
             <div class="card-body p-0 h-100">
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">Appt ID</th>
-                                <th scope="col">Appointment Time</th>
-                                <th scope="col">Cust ID</th>
-                                <th scope="col">Cust Name</th>
-                                <th scope="col">Cust Phone</th>
-                                <th scope="col">Cust Email</th>
-                                <th scope="col">Note</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col" class="responsive-appt-id">Appt ID</th>
+                                <th scope="col" class="responsive-appt-time">Appointment Time</th>
+                                {{!-- <th scope="col">Cust ID</th> --}}
+                                <th scope="col" class="responsive-appt-fullName">Full Name</th>
+                                <th scope="col" class="responsive-contact-number">Contact Number</th>
+                                <th scope="col">Email</th>
+                                <th scope="col" class="responsive-appt-notes">Notes</th>
+                                <th scope="col" class="responsive-save-changes"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <form>
@@ -104,17 +107,32 @@
                                 <tr>
                                     <td>{{this.id}}</td>
                                     <td>{{this.start_time}}</td>
-                                    <td>{{this.Customer.id}}</td>
+                                    {{!-- <td>{{this.Customer.id}}</td> --}}
                                     <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}
                                     </td>
                                     <td>{{this.Customer.phone}}</td>
                                     <td>{{this.Customer.email}}</td>
                                     <td>{{this.note}}</td>
-                                    <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm edit"
+                                    {{!-- <td><button type="button" data-id={{this.id}} class="btn btn-primary btn-sm edit"
                                             data-toggle="collapse" data-target="#collapse{{this.id}}"
-                                            aria-expanded="false" aria-controls="collapse{{this.id}}">Edit</button></td>
-                                    <td><button type="button" data-id={{this.id}}
-                                            class="btn btn-danger btn-sm delete">Delete</button></td>
+                                            aria-expanded="false" aria-controls="collapse{{this.id}}">Edit</button>
+                                    </td> --}}
+                                    <td class="text-center edit-del-styling edit">
+                                        <a class="btn btn-primary edit-del-effect" style="background: rgb(109,117,125)"
+                                            data-id="{{this.id}}" data-toggle="collapse"
+                                            data-target="#collapse{{this.id}}" role="button" aria-expanded="false"
+                                            aria-controls="collapse{{this.id}}">
+                                            <i class="fas fa-edit edit-del-icons"></i>
+                                        </a>
+                                    </td>
+                                    {{!-- <td><button type="button" data-id={{this.id}}
+                                            class="btn btn-danger btn-sm delete">Delete</button>
+                                    </td> --}}
+                                    <td class="text-center edit-del-styling"> <button type="button" data-id={{this.id}}
+                                            class="btn btn-primary edit-del-effect delete"
+                                            style="background: darkred"><i
+                                                class="fas fa-trash-alt edit-del-icons"></i></button>
+                                    </td>
                                 </tr>
                                 <tr class="collapse" id="collapse{{this.id}}">
                                     <td>{{this.id}}</td>
@@ -132,7 +150,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>{{this.Customer.id}}</td>
+                                    {{!-- <td>{{this.Customer.id}}</td> --}}
                                     <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}
                                     </td>
                                     <td>{{this.Customer.phone}}</td>
@@ -143,12 +161,18 @@
                                                 placeholder={{this.note}}></input>
                                         </div>
                                     </td>
-                                    <td><button type="button" data-id={{this.id}}
-                                            class="btn btn-primary btn-sm save-edit">Save</button></td>
-                                    <td><button type="button" data-id={{this.id}}
-                                            class="btn btn-danger btn-sm discard-edit" data-toggle="collapse"
-                                            data-target="#collapse{{this.id}}" aria-expanded="false"
-                                            aria-controls="collapse{{this.id}}">Discard</button></td>
+                                    {{!-- <td><button type="button" data-id={{this.id}}
+                                            class="btn btn-primary btn-sm save-edit">Save</button>
+                                    </td> --}}
+                                    <td class="text-center"><button type="button" data-id={{this.id}}
+                                            class="btn btn-primary save-edit" id="saveSummaryApptBtn">Save
+                                            Changes</button>
+                                    </td>
+                                    <td>{{!-- <button type="button" data-id={{this.id}} class="btn btn-danger discard-edit"
+                                            data-toggle="collapse" data-target="#collapse{{this.id}}"
+                                            aria-expanded="false"
+                                            aria-controls="collapse{{this.id}}">Discard</i></button> --}}
+                                    </td>
                                 </tr>
                                 {{/each}}
                             </tbody>
@@ -159,5 +183,3 @@
         </div>
     </div>
 </div>
-
-<script src="/assets/js/appointment.js"></script>

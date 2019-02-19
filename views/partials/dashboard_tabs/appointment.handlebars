@@ -15,12 +15,12 @@
                             {{/each}}
                         </select>
                     </div>
-                  
+
                     <div class="form-group col-md-6">
                         <label for="newCust">New Customer</label>
                         <br>
                         <a href="#new-customer"><button id="newCust" type="button"
-                            class="btn btn-primary new-member-btn-styling">Create Customer</button></a>
+                                class="btn btn-primary new-member-btn-styling">Create Customer</button></a>
                     </div>
                 </div>
 
@@ -29,19 +29,20 @@
                         <label for="appt-time-new">Appointment Date and Time</label>
                         <br>
                         <div class="form-group">
-                        <div class="input-group date" required id="datetimepicker1" data-target-input="nearest">
-                            <input type="text" id="appt-date" class="form-control datetimepicker-input"
-                            data-target="#datetimepicker1" />
-                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="input-group date" required id="datetimepicker1" data-target-input="nearest">
+                                <input type="text" id="appt-date" class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker1" />
+                                <div class="input-group-append" data-target="#datetimepicker1"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    <script type="text/javascript">
-                        $(function () {
-                        $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker1').datetimepicker();
+                            });
+                        </script>
                     </div>
 
                 </div>
@@ -59,5 +60,3 @@
         </div>
     </div>
 </div>
-
-<script src="/assets/js/appointment.js"></script>

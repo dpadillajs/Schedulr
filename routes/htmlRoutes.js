@@ -26,31 +26,46 @@ module.exports = function(app, passport) {
           }
         ]
       }).then(function(dbAppt) {
-        console.log("query");
-        console.log(req.query);
-        if (Object.keys(req.query).length === 0 || req.query.sval === "") {
-          db.Customer.findAll({}).then(function(dbCustomer) {
-            res.render("dashboard", {
-              client: dbClient,
-              appointments: dbAppt,
-              listOfCustomers: dbCustomer
-            });
-          });
-        } else if (req.query) {
-          var key = req.query.stype;
-          var val = req.query.sval;
-          db.Customer.findAll({
-            where: {
-              [key]: val
+        db.Appointment.count({
+          where: {
+            business_id: req.user.id
+          },
+          include: [
+            {
+              model: db.Client,
+              as: "Client"
+            },
+            {
+              model: db.Customer,
+              as: "Customer"
             }
-          }).then(function(dbCustomer) {
-            res.render("dashboard", {
-              client: dbClient,
-              appointments: dbAppt,
-              listOfCustomers: dbCustomer
+          ]
+        }).then(function(dbApptCount) {
+          console.log("query");
+          console.log(req.query);
+          if (Object.keys(req.query).length === 0 || req.query.sval === "") {
+            db.Customer.findAll({}).then(function(dbCustomer) {
+              res.render("dashboard", {
+                client: dbClient,
+                appointments: dbAppt,
+                listOfCustomers: dbCustomer,
+                numOfAppointments: dbApptCount
+              });
             });
-          });
-        }
+          } else if (req.query) {
+            var key = req.query.stype;
+            var val = req.query.sval;
+            db.Customer.findAll({
+              where: { [key]: val }
+            }).then(function(dbCustomer) {
+              res.render("dashboard", {
+                client: dbClient,
+                appointments: dbAppt,
+                listOfCustomers: dbCustomer
+              });
+            });
+          }
+        });
       });
     });
   });
