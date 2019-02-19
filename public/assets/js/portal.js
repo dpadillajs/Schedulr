@@ -103,4 +103,82 @@ $(document).ready(function() {
     });
   }
   editApp();
+
+  $("#editCustomer").on("click", function(event) {
+    event.preventDefault();
+    var editCustomer = {};
+    var addressEdit = "";
+    var editID = $("input[name='selectedCustomer']:checked").val();
+    editCustomer.id = editID;
+    editCustomer.email = $("#custEmailEdit")
+      .val()
+      .trim();
+    editCustomer.password = $("#custPasswordEdit")
+      .val()
+      .trim();
+    editCustomer.firstName = $("#custFirstNameEdit")
+      .val()
+      .trim();
+    editCustomer.lastName = $("#custLastNameEdit")
+      .val()
+      .trim();
+    editCustomer.mName = $("#custMiddleNameEdit")
+      .val()
+      .trim();
+    editCustomer.age = $("#custAgeEdit")
+      .val()
+      .trim();
+    editCustomer.gender = $("#custGenderEdit option:selected").val();
+    editCustomer.phone = $("#custNumberEdit")
+      .val()
+      .trim();
+    addressEdit +=
+      $("#custAddressEdit")
+        .val()
+        .trim() + " ";
+    addressEdit +=
+      $("#custSecondaryAddressEdit")
+        .val()
+        .trim() + " ";
+    addressEdit +=
+      $("#custSecondaryAddressEdit")
+        .val()
+        .trim() + " ";
+    addressEdit +=
+      $("#custCityEdit")
+        .val()
+        .trim() + " ";
+    addressEdit += $("#custStateEdit option:selected").val() + " ";
+    editCustomer.address = addressEdit;
+    editCustomer.zipcode = $("#custZipCodeEdit")
+      .val()
+      .trim();
+    console.log(editCustomer);
+    $.ajax({
+      method: "PUT",
+      url: "/api/new-customer",
+      data: editCustomer
+    }).then(function(response) {
+      var alertmessage = "";
+      console.log(response.errors);
+      if (response.errors) {
+        response.errors.forEach(function(element) {
+          alertmessage +=
+            "<p>Please, check your " + element.path + ". It is not valid.</p>";
+        });
+        Swal.fire({
+          type: "error",
+          title: "Oops...",
+          html: alertmessage
+        });
+      } else {
+        Swal.fire({
+          title: "Customer has been edited!",
+          showConfirmButton: true
+        }).then(function() {
+          location.reload();
+        });
+      }
+    });
+  });
 });
