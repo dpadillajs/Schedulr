@@ -10,10 +10,22 @@ $("#clientSignup").on("click", function(event) {
   obj.bus_name = $("#clientName")
     .val()
     .trim();
+  obj.bus_address = $("#clientAddress")
+    .val()
+    .trim();
+  obj.bus_website = $("#clientWebsite")
+    .val()
+    .trim();
+  obj.bus_number = $("clientNumber")
+    .val()
+    .trim();
   obj.first_apt = $("#clientFirstApp")
     .val()
     .trim();
   obj.last_apt = $("#clientLastApp")
+    .val()
+    .trim();
+  obj.file = $("#exampleFormControlFile1")
     .val()
     .trim();
   $.ajax({
