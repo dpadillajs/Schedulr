@@ -5,27 +5,10 @@
                 <nav class="navbar navbar-light customer-navbar-styling justify-content-between">
                     <a class="navbar-brand">Customer Lookup</a>
                     <form class="form-inline">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button id="selected" class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search by</button>
-                                <div id="search-menu" class="dropdown-menu">
-                                    <a class="dropdown-item" data-search="id">ID</a>
-                                    <a class="dropdown-item" data-search="lastName">Last Name</a>
-                                    <a class="dropdown-item" data-search="phone">Phone Number</a>
-                                    <a class="dropdown-item" data-search="id">Email</a>
-                                </div>
-                            </div>
-                            <form method="GET" action="/client">
-                                <input type="hidden" name="stype" id="stype">
-                                <input id="searchInput" name="sval" type="text" class="form-control"
-                                    aria-label="Text input with dropdown button">
-                                <button type="submit" id="customer-search" class="btn btn-outline-success my-2 my-sm-0">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-                        </div>
-
+                        <input class="form-control mr-sm-2 search-width-styling responsive-search-icon" type="search"
+                            placeholder="Search by Name, Email, or ID" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                class="fas fa-search"></i></button>
                     </form>
                 </nav>
             </div>

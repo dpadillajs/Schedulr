@@ -41,32 +41,14 @@ module.exports = function(app, passport) {
             }
           ]
         }).then(function(dbApptCount) {
-          console.log("query");
-          console.log(req.query);
-          if (Object.keys(req.query).length === 0 || req.query.sval === "") {
-            db.Customer.findAll({}).then(function(dbCustomer) {
-              res.render("dashboard", {
-                client: dbClient,
-                appointments: dbAppt,
-                listOfCustomers: dbCustomer,
-                numOfAppointments: dbApptCount
-              });
+          db.Customer.findAll({}).then(function(dbCustomer) {
+            res.render("dashboard", {
+              client: dbClient,
+              appointments: dbAppt,
+              listOfCustomers: dbCustomer,
+              numOfAppointments: dbApptCount
             });
-          } else if (req.query) {
-            var key = req.query.stype;
-            var val = req.query.sval;
-            var ob = {};
-            ob[key] = val;
-            db.Customer.findAll({
-              where: ob
-            }).then(function(dbCustomer) {
-              res.render("dashboard", {
-                client: dbClient,
-                appointments: dbAppt,
-                listOfCustomers: dbCustomer
-              });
-            });
-          }
+          });
         });
       });
     });
