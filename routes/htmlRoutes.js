@@ -63,7 +63,8 @@ module.exports = function(app, passport) {
               res.render("dashboard", {
                 client: dbClient,
                 appointments: dbAppt,
-                listOfCustomers: dbCustomer
+                listOfCustomers: dbCustomer,
+                numOfAppointments: dbApptCount
               });
             });
           }
