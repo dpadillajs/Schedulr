@@ -19,7 +19,7 @@
     "no-empty-function": "error",
     "no-multi-spaces": "error",
     "no-unused-vars": "error",
-    "indent": ["error", 2],
+    "indent": ["warn", 2],
     "semi": ["error", "always"],
     "prettier/prettier": "error"
   }

@@ -26,13 +26,31 @@ module.exports = function(app, passport) {
           }
         ]
       }).then(function(dbAppt) {
-        db.Customer.findAll({}).then(function(dbCustomer) {
-          res.render("dashboard", {
-            client: dbClient,
-            appointments: dbAppt,
-            listOfCustomers: dbCustomer
+        console.log("query");
+        console.log(req.query);
+        if (Object.keys(req.query).length === 0 || req.query.sval === "") {
+          db.Customer.findAll({}).then(function(dbCustomer) {
+            res.render("dashboard", {
+              client: dbClient,
+              appointments: dbAppt,
+              listOfCustomers: dbCustomer
+            });
           });
-        });
+        } else if (req.query) {
+          var key = req.query.stype;
+          var val = req.query.sval;
+          db.Customer.findAll({
+            where: {
+              [key]: val
+            }
+          }).then(function(dbCustomer) {
+            res.render("dashboard", {
+              client: dbClient,
+              appointments: dbAppt,
+              listOfCustomers: dbCustomer
+            });
+          });
+        }
       });
     });
   });
