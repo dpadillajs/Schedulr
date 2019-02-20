@@ -114,9 +114,6 @@ $(document).ready(function() {
     editCustomer.email = $("#custEmailEdit")
       .val()
       .trim();
-    editCustomer.password = $("#custPasswordEdit")
-      .val()
-      .trim();
     editCustomer.firstName = $("#custFirstNameEdit")
       .val()
       .trim();

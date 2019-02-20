@@ -124,7 +124,6 @@ module.exports = function(app) {
     db.Customer.update(
       {
         email: req.body.email,
-        password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         mName: req.body.mName,
