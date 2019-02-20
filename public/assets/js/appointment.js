@@ -47,7 +47,7 @@ var newAppointment = function(event) {
   var apptTime = $startTime.val().trim();
   var slicedDate = $startTime
     .val()
-    .slice(10)
+    .slice(0, -8)
     .trim();
   var slicedTime = $startTime
     .val()
