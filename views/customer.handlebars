@@ -1,0 +1,56 @@
+<div class="dashboard-bg">
+    <div class="container-fluid client-dashboard-bg d-flex align-items-center">
+        <p class="client-logo pt-4">{{Customer.firstName}} Dashboard</p>
+    </div>
+<div class="container-fluid p-4" style="
+    padding-top: 5px!important">
+    <div class=" row">
+        <div class="card mt-0 mx-auto portal-card-styling">
+            <div class="card-header customer-navbar-styling">
+                <nav class="navbar navbar-light customer-navbar-styling justify-content-between">
+                    <a class="navbar-brand">Appointments</a>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2 search-width-styling responsive-search-icon" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                                class="fas fa-search"></i></button>
+                    </form>
+                </nav>
+            </div>
+            <div class="card-body p-0 h-100">
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="responsive-appt-id">Appt ID</th>
+                                <th scope="col" class="responsive-appt-time">Appointment Time</th>
+                                <th scope="col" class="responsive-appt-fullName">Full Name</th>
+                                <th scope="col" class="responsive-contact-number">Contact Number</th>
+                                <th scope="col">Email</th>
+                                <th scope="col" class="responsive-appt-notes">Notes</th>
+                            </tr>
+                        </thead>
+                        <form>
+                            <tbody>
+                                {{#each appointments}}
+                                <tr>
+                                    <td>{{this.id}}</td>
+                                    <td>{{this.start_time}}</td>
+                                    <td>{{this.Customer.firstName}} {{this.Customer.mName}} {{this.Customer.lastName}}
+                                    </td>
+                                    <td>{{this.Customer.phone}}</td>
+                                    <td>{{this.Customer.email}}</td>
+                                    <td>{{this.note}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
