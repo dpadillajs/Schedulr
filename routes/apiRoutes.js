@@ -149,34 +149,22 @@ module.exports = function(app) {
       });
   });
 
-  // app.put("/api/new-customer", function(req, res) {
-  //   db.Customer.update(
-  //     {
-  //       email: req.body.email,
-  //       firstName: req.body.firstName,
-  //       lastName: req.body.lastName,
-  //       mName: req.body.mName,
-  //       phone: req.body.phone,
-  //       age: req.body.age,
-  //       gender: req.body.gender,
-  //       address: req.body.address,
-  //       zipcode: req.body.zipcode
-  //     },
-  //     {
-  //       where: {
-  //         id: req.body.id
-  //       }
-  //     }
-  //   )
-  //     .then(function(editCustomer) {
-  //       res.json(editCustomer);
-  //     })
-  //     .catch(function(err) {
-  //       if (err) {
-  //         res.json(err);
-  //       }
-  //     });
-  // });
+  app.get("/api/customer/:id", function(req, res) {
+    db.Customer.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(custInfo) {
+        console.log(custInfo);
+        res.json(custInfo);
+      })
+      .catch(function(err) {
+        if (err) {
+          res.json(err);
+        }
+      });
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

@@ -23,18 +23,18 @@ $(document).ready(function() {
       $("#selected").text($(this).text());
       var type = $(this).text();
       switch (type) {
-        case "ID":
-          typeQuery = "id";
-          break;
-        case "Last Name":
-          typeQuery = "lastName";
-          break;
-        case "Phone Number":
-          typeQuery = "phone";
-          break;
-        case "Email":
-          typeQuery = "email";
-          break;
+      case "ID":
+        typeQuery = "id";
+        break;
+      case "Last Name":
+        typeQuery = "lastName";
+        break;
+      case "Phone Number":
+        typeQuery = "phone";
+        break;
+      case "Email":
+        typeQuery = "email";
+        break;
       }
       $("#stype").val(typeQuery);
     });
@@ -105,11 +105,43 @@ $(document).ready(function() {
   }
   editApp();
 
+
+  $("#app-Edit").on("click", function(event) {
+    event.preventDefault();
+    var editID = $("input[name='selectedCustomer']:checked").val();
+
+    $.ajax({
+      method: "GET",
+      url: "/api/customer/" + editID,
+    }).then(function(response) {
+      console.log(response[0]);
+      var address = response[0].address.split(" ");
+      var addLength = address.length;
+      address.pop();
+      var state = address.pop();
+      var city = address.pop();
+      var street = address.join(" ");
+      console.log(address, street, state, city);
+      $("#custEmailEdit").val(response[0].email);
+      $("#custFirstNameEdit").val(response[0].firstName);
+      $("#custLastNameEdit").val(response[0].lastName);
+      $("#custMiddleNameEdit").val(response[0].mName);
+      $("#custAgeEdit").val(response[0].age);
+      $("#custGenderEdit").val(response[0].gender);
+      $("#custNumberEdit").val(response[0].phone);
+      $("#custAddressEdit").val(street);
+      $("#custStateEdit option[value=" + state + "]").attr("selected", "selected");
+      $("#custCityEdit").val(city);
+      $("#custZipCodeEdit").val(response[0].zipcode);
+    });
+  });
+
   $("#editCustomer").on("click", function(event) {
     event.preventDefault();
     var editCustomer = {};
     var addressEdit = "";
     var editID = $("input[name='selectedCustomer']:checked").val();
+
     editCustomer.id = editID;
     editCustomer.email = $("#custEmailEdit")
       .val()
@@ -132,14 +164,6 @@ $(document).ready(function() {
       .trim();
     addressEdit +=
       $("#custAddressEdit")
-        .val()
-        .trim() + " ";
-    addressEdit +=
-      $("#custSecondaryAddressEdit")
-        .val()
-        .trim() + " ";
-    addressEdit +=
-      $("#custSecondaryAddressEdit")
         .val()
         .trim() + " ";
     addressEdit +=
