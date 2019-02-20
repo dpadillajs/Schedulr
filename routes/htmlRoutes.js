@@ -1,5 +1,8 @@
 var db = require("../models");
 
+var moment = require("moment");
+moment().format();
+
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
     res.render("landingPage");
@@ -26,6 +29,13 @@ module.exports = function(app, passport) {
           }
         ]
       }).then(function(dbAppt) {
+        var prettyApp = dbAppt.map(function(element) {
+          var newDate = moment(element.start_time).format(
+            "MMMM Do YYYY, h:mm a"
+          );
+          element.pretty_start_time = newDate;
+          return element;
+        });
         db.Appointment.count({
           where: {
             business_id: req.user.id
@@ -47,7 +57,7 @@ module.exports = function(app, passport) {
             db.Customer.findAll({}).then(function(dbCustomer) {
               res.render("dashboard", {
                 client: dbClient,
-                appointments: dbAppt,
+                appointments: prettyApp,
                 listOfCustomers: dbCustomer,
                 numOfAppointments: dbApptCount
               });
@@ -62,7 +72,7 @@ module.exports = function(app, passport) {
             }).then(function(dbCustomer) {
               res.render("dashboard", {
                 client: dbClient,
-                appointments: dbAppt,
+                appointments: prettyApp,
                 listOfCustomers: dbCustomer,
                 numOfAppointments: dbApptCount
               });
