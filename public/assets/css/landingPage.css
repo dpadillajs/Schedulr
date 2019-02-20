@@ -118,7 +118,7 @@ small {
 }
 
 .login-container {
-  height: 45px;
+  height: 65px;
   color: white;
 }
 
@@ -133,7 +133,7 @@ small {
   width: 87px;
   height: 30px;
   border-radius: initial;
-  margin-top: 0 !important;
+  margin-top: 15px;
   padding: 0;
 }
 

@@ -75,6 +75,7 @@
 .summary-cards {
   height: 200px;
   max-width: none !important;
+  border: none;
 }
 
 .time-text {
@@ -208,14 +209,44 @@
 }
 
 #editApptPortalBtn:hover,
-#saveSummaryApptBtn:hover {
+#saveSummaryApptBtn:hover,
+#saveSummaryApptBtn:hover,
+#editCustomer:hover,
+#createCustomer:hover,
+#newCust:hover,
+#createAppt:hover {
   opacity: 0.9;
 }
 
-#app-details:hover {
+#app-details:hover,
+#app-Edit:hover {
   background: rgb(109, 117, 125);
 }
 
 .responsive-appt-fullName {
   min-width: 120px;
+}
+
+#selected {
+  height: calc(2.25rem + 2px);
+}
+
+#searchInput {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.lookupLogo {
+  font-size: 22px;
+  font-family: "Archivo", sans-serif;
+  text-shadow: 4px 4px 8px #000000;
+}
+
+#searchInput:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.user-login-labels {
+  font-size: 14px;
 }
