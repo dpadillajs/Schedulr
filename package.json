@@ -19,6 +19,7 @@
     "express-session": "^1.15.6",
     "moment": "^2.24.0",
     "mysql2": "^1.6.4",
+    "nexmo": "^2.4.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^4.41.2",

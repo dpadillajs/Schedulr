@@ -29,14 +29,14 @@ $("#clientSignup").on("click", function(event) {
     .val()
     .trim();
 
-console.log(obj);
+  console.log(obj);
 
   $.ajax({
     method: "POST",
     url: "/signup",
     data: obj
   }).then(function(response) {
-console.log("requestsent");
+    console.log("requestsent");
 
     if (response.message) {
       Swal.fire({
@@ -74,4 +74,16 @@ $("#clientLogin").on("click", function(event) {
       window.location.replace("/client");
     }
   });
+});
+
+// Smooth Scrolling
+$(document).on("click", 'a[href^="#"]', function(event) {
+  event.preventDefault();
+
+  $("html, body").animate(
+    {
+      scrollTop: $($.attr(this, "href")).offset().top
+    },
+    500
+  );
 });

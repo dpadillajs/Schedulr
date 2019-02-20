@@ -36,6 +36,11 @@ var newAppointment = function(event) {
   var custID = $("select.customerName")
     .find(":selected")
     .data("id");
+  console.log(
+    $("select.customerName")
+      .find(":selected")
+      .val()
+  );
   var busID = $(this).attr("data-id");
   var noteText = $custNote.val().trim();
   var apptTime = $startTime.val().trim();
@@ -112,3 +117,26 @@ $("#displayMonth").text(moment().format("MMMM"));
 $("#displayDate").text(moment().format("DD"));
 $("#displayDay").text(moment().format("dddd"));
 $("#displayTime").text(time);
+
+// var Nexmo = require("nexmo");
+
+// var nexmo = new Nexmo({
+//   apiKey: "b37e4c38",
+//   apiSecret: "3AFgADBLMvr9XrfY"
+// });
+
+// var from = "15053031062";
+// var to = "19198699647";
+// // var name = "David";
+// // var companyName = "Duke Clinic";
+// // var date = "Feb 4th";
+// var text =
+//   "Hello " +
+//   name +
+//   ",\n\nYour appointment has been booked at " +
+//   date +
+//   "." +
+//   "\n\n- " +
+//   companyName;
+
+// nexmo.message.sendSms(from, to, text);
