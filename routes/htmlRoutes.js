@@ -107,6 +107,26 @@ module.exports = function(app, passport) {
     });
   });
 
+  //customer appointment page
+  app.get("/customer/:id", function(req, res) {
+    db.Appointment.findAll({
+      where: {
+        customer_id: req.params.id
+      },
+      include: [
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
+    }).then(function(dbAppt) {
+      res.render("customer", {
+        msg: "This is appointment " + req.params.id,
+        appointments: dbAppt
+      });
+    });
+  });
+
   //Authentification
 
   app.post("/signup", function(req, res, next) {
