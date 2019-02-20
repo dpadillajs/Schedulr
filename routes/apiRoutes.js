@@ -1,4 +1,5 @@
 var db = require("../models");
+var keys = require("../keys");
 
 var moment = require("moment");
 moment().format();
@@ -26,11 +27,11 @@ module.exports = function(app) {
   app.post("/api/appointments", function(req, res) {
     var Nexmo = require("nexmo");
     var nexmo = new Nexmo({
-      apiKey: process.env.API_KEY,
-      apiSecret: process.env.API_SECRET
+      apiKey: keys.nexmoKey.apiKey,
+      apiSecret: keys.nexmoKey.apiSecret
     });
 
-    var from = process.env.NEXMO_NUM;
+    var from = keys.nexmoKey.nexmoNumber;
     var to = "1" + req.body.customer_num;
     var name = req.body.customer_name;
     var companyName = req.body.business_name;
