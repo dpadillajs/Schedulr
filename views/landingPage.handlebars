@@ -65,7 +65,7 @@
   <div id="clientSignUpForm" style="background: lightblue;">div block - Libby's Form Goes In Here - div block
     <form>
       <div class="form-group" id="client-signup">
-      <div class="card card-body mb-3">
+      <div class="card mb-3">
         <div class="form-group mt-2">
           <label for="clientEmail"><strong>Email Address:</strong></label>
           <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
@@ -103,7 +103,7 @@
         </div>
         <div class="form-group mt-2">
           <label for="inputTime"><strong>First Available Appointment:</strong></label>
-          <select id="inputTime" class="form-control">
+          <select id="clientFirstApp" class="form-control">
             <option selected>Choose...</option>
             <option value="1">8:00 AM</option>
             <option value="2">9:00 AM</option>
@@ -126,7 +126,7 @@
 
         <div class="form-group mt-2">
           <label for="inputTime"><strong>Last Available Appointment</strong></label>
-          <select id="inputTime" class="form-control">
+          <select id="clientLastApp" class="form-control">
             <option selected>Choose...</option>
             <option value="1">8:00 AM</option>
             <option value="2">9:00 AM</option>
@@ -148,8 +148,8 @@
         </div>
 
         <div class="form-group">
-          <label for="exampleFormControlFile1"><strong>Company Logo: </strong></label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          <label for="fileUpload"><strong>Company Logo: </strong></label>
+          <input type="file" class="form-control-file" id="fileUpload">
         </div>
 
         <button type="submit" id="clientSignup" class="btn btn-primary mb-3 mt-2">Sign Up</button>
