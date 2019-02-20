@@ -107,26 +107,6 @@ module.exports = function(app, passport) {
     });
   });
 
-  //customer appointment page
-  app.get("/customer/:id", function(req, res) {
-    db.Appointment.findAll({
-      where: {
-        customer_id: req.params.id
-      },
-      include: [
-        {
-          model: db.Customer,
-          as: "Customer"
-        }
-      ]
-    }).then(function(dbAppt) {
-      res.render("customer", {
-        msg: "This is appointment " + req.params.id,
-        appointments: dbAppt
-      });
-    });
-  });
-
   //Authentification
 
   app.post("/signup", function(req, res, next) {
@@ -184,4 +164,75 @@ module.exports = function(app, passport) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
+  //render customer page
+  app.get("/customer/:id", function(req, res) {
+    db.Appointment.findAll({
+      where: {
+        customer_id: req.params.id
+      },
+      include: [
+        {
+          model: db.Customer,
+          as: "Customer"
+        }
+      ]
+    }).then(function(dbAppt) {
+      res.render("customer", {
+        msg: "This is appointment " + req.params.id,
+        appointments: dbAppt
+      });
+    });
+  });
+
+  // app.get("/customer/:id", function(req, res) {
+  //   db.Customer.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(dbCust) {
+  //     db.Appointment.findAll({
+  //       where: {
+  //         customer_id: req.params.id
+  //       },
+  //       include: [
+  //         {
+  //           model: db.Client,
+  //           as: "Client"
+  //         },
+  //         {
+  //           model: db.Customer,
+  //           as: "Customer"
+  //         }
+  //       ]
+  //     }).then(function(dbAppt) {
+  //       var prettyApp = dbAppt.map(function(element) {
+  //         var newDate = moment(element.start_time).format("MMMM Do YYYY, h:mm a");
+  //         element.pretty_start_time = newDate;
+  //         return element;
+  //       });
+  //       db.Appointment.count({
+  //         where: {
+  //           business_id: req.params.id
+  //         },
+  //         include: [
+  //           {
+  //             model: db.Client,
+  //             as: "Client"
+  //           },
+  //           {
+  //             model: db.Customer,
+  //             as: "Customer"
+  //           }
+  //         ]
+  //       }).then(function(dbApptCount) {
+  //         res.render("customer", {
+  //           appointments: prettyApp,
+  //           apptNum: dbApptCount,
+  //           cust: dbCust
+  //         });
+  //       });
+  //     });
+  //   });
+  // });
 };
