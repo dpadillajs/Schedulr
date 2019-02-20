@@ -6,7 +6,6 @@ var $custNote = $("#custNote");
 
 var API = {
   saveAppointment: function(appt) {
-    console.log("Saving 2");
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -32,28 +31,38 @@ var API = {
 
 var newAppointment = function(event) {
   event.preventDefault();
-  console.log("saving - newAppt 1");
   var custID = $("select.customerName")
     .find(":selected")
     .data("id");
-  console.log(
-    $("select.customerName")
-      .find(":selected")
-      .val()
-  );
+  var custName = $("select.customerName")
+    .find(":selected")
+    .data("name");
+  var custNum = $("select.customerName")
+    .find(":selected")
+    .data("num");
+
+  var busName = $("#clientBusinessName").text();
   var busID = $(this).attr("data-id");
   var noteText = $custNote.val().trim();
   var apptTime = $startTime.val().trim();
-
-  console.log("Cust ID: " + custID);
-  console.log("Bus ID: " + busID);
-  console.log("Note: " + noteText);
-  console.log("Appt Time: " + apptTime);
+  var slicedDate = $startTime
+    .val()
+    .slice(10)
+    .trim();
+  var slicedTime = $startTime
+    .val()
+    .slice(-8)
+    .trim();
 
   var appt = {
     customer_id: custID,
+    customer_name: custName,
+    customer_num: custNum,
     business_id: busID,
+    business_name: busName,
     start_time: apptTime,
+    sliced_date: slicedDate,
+    sliced_time: slicedTime,
     note: noteText
   };
 
@@ -70,7 +79,6 @@ var newAppointment = function(event) {
 var deletedAppt = function(event) {
   event.preventDefault();
   var apptID = $(this).attr("data-id");
-  console.log(apptID);
   API.deleteAppointment(apptID).then(function() {
     location.reload();
   });
@@ -85,7 +93,6 @@ var editedAppt = function(event) {
   var newNote = $("#note" + editID)
     .val()
     .trim();
-  console.log(editID + " " + newDate + " " + newNote);
 
   var appt = {
     id: editID,
@@ -117,26 +124,3 @@ $("#displayMonth").text(moment().format("MMMM"));
 $("#displayDate").text(moment().format("DD"));
 $("#displayDay").text(moment().format("dddd"));
 $("#displayTime").text(time);
-
-// var Nexmo = require("nexmo");
-
-// var nexmo = new Nexmo({
-//   apiKey: "b37e4c38",
-//   apiSecret: "3AFgADBLMvr9XrfY"
-// });
-
-// var from = "15053031062";
-// var to = "19198699647";
-// // var name = "David";
-// // var companyName = "Duke Clinic";
-// // var date = "Feb 4th";
-// var text =
-//   "Hello " +
-//   name +
-//   ",\n\nYour appointment has been booked at " +
-//   date +
-//   "." +
-//   "\n\n- " +
-//   companyName;
-
-// nexmo.message.sendSms(from, to, text);

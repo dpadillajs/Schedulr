@@ -24,6 +24,31 @@ module.exports = function(app) {
 
   // Create a new appointment
   app.post("/api/appointments", function(req, res) {
+    var Nexmo = require("nexmo");
+    var nexmo = new Nexmo({
+      apiKey: process.env.API_KEY,
+      apiSecret: process.env.API_SECRET
+    });
+
+    var from = process.env.NEXMO_NUM;
+    var to = "1" + req.body.customer_num;
+    var name = req.body.customer_name;
+    var companyName = req.body.business_name;
+    var date = req.body.sliced_date;
+    var time = req.body.sliced_time;
+
+    var text =
+      "Greetings " +
+      name +
+      ",\n\nYour appointment has been scheduled on " +
+      date +
+      " at " +
+      time +
+      ".\n\n- " +
+      companyName;
+
+    nexmo.message.sendSms(from, to, text);
+
     db.Appointment.create({
       customer_id: req.body.customer_id,
       business_id: req.body.business_id,
