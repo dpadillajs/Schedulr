@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     bus_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       notEmpty: true
     },
     image: DataTypes.STRING,
