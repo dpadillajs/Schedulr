@@ -115,14 +115,25 @@ module.exports = function(app, passport) {
       },
       include: [
         {
+          model: db.Client,
+          as: "Client"
+        },
+        {
           model: db.Customer,
           as: "Customer"
         }
       ]
     }).then(function(dbAppt) {
-      res.render("customer", {
-        msg: "This is appointment " + req.params.id,
-        appointments: dbAppt
+      db.Customer.findOne({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbCust) {
+        res.render("customer", {
+          msg: "This is appointment " + req.params.id,
+          appointments: dbAppt,
+          customer: dbCust
+        });
       });
     });
   });
