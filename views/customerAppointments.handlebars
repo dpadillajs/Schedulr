@@ -12,8 +12,8 @@
         {{#each app}}
         <tr id="accordion-{{this.id}}">
             <th scope="row">{{this.id}}</th>
-            <td>{{this.start_time}}</td>
-            <td>{{this.note}}</td>
+            <td id="currentTime{{this.id}}">{{this.start_time}}</td>
+            <td id="currentNote{{this.id}}">{{this.note}}</td>
             <td class="text-center edit-del-styling">
                 <a class="btn btn-primary edit-del-effect" style="background: rgb(109,117,125)" data-edit="{{this.id}}"
                     data-toggle="collapse" href="#collapseExample{{this.id}}" role="button" aria-expanded="false"
@@ -43,7 +43,7 @@
             </td>
             <td> <input type="text" id="notes{{this.id}}" class="form-control" placeholder="Notes">
             </td>
-            <td class="text-center"><button type="button" class="btn btn-primary" id="editApptPortalBtn">Save
+            <td class="text-center"><button type="button" class="btn btn-primary" id="editApptPortalBtn{{this.id}}">Save
                     Changes</button>
             </td>
             <td></td>
