@@ -11,7 +11,8 @@
                         <label for="custNames">Existing Customer</label>
                         <select id="custNames" class="form-control customerName" required>
                             {{#each listOfCustomers}}
-                            <option data-id={{this.id}}>{{this.firstName}} {{this.mName}} {{this.lastName}}</option>
+                            <option data-id={{this.id}} data-name={{this.firstName}} data-num={{this.phone}}>
+                                {{this.firstName}} {{this.mName}} {{this.lastName}}</option>
                             {{/each}}
                         </select>
                     </div>
