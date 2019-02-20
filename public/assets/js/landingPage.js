@@ -10,17 +10,34 @@ $("#clientSignup").on("click", function(event) {
   obj.bus_name = $("#clientName")
     .val()
     .trim();
-  obj.first_apt = $("#clientFirstApp")
+  obj.bus_address = $("#clientAddress")
     .val()
     .trim();
-  obj.last_apt = $("#clientLastApp")
+  obj.bus_website = $("#clientwebsite")
     .val()
     .trim();
+  obj.bus_number = $("#clientNumber")
+    .val()
+    .trim();
+  obj.first_apt = $("#clientFirstApp option:selected")
+    .val()
+    .trim();
+  obj.last_apt = $("#clientLastApp option:selected")
+    .val()
+    .trim();
+  obj.file = $("#fileUpload")
+    .val()
+    .trim();
+
+console.log(obj);
+
   $.ajax({
     method: "POST",
     url: "/signup",
     data: obj
   }).then(function(response) {
+console.log("requestsent");
+
     if (response.message) {
       Swal.fire({
         type: "error",
