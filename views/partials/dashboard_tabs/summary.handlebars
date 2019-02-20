@@ -23,6 +23,7 @@
                         <dt class="col-sm-3">Customer Service</dt>
                         <dd class="col-sm-9">123.456.7890</dd>
                     </dl>
+                    <img id="client_image" src="" alt="loading"/>
                 </div>
             </div>
         </div>
@@ -165,3 +166,8 @@
         </div>
     </div>
 </div>
+
+<script>
+    var imageSrc = "{{client.image}}";
+    document.querySelector("#client_image").src = imageSrc;
+</script>

@@ -1,5 +1,5 @@
 <div class="landing-page-bg">
-  <form>
+  <form >
     <div class="container-fluid login-container d-flex justify-content-end align-items-center">
       <div class="mb-2 float-left">
         <label for="landingPageEmail" class="mb-0 user-login-labels">Email</label>
@@ -68,97 +68,100 @@
     </div>
   </div>
 
-  <div id="clientSignUpForm">
-    <form>
+  <div id="clientSignUpForm" style="background: lightblue;">
+      div block - Libby's Form Goes In Here - div block
+    <form action="/signup" method="post" enctype="multipart/form-data">
       <div class="form-group" id="client-signup">
-        <div class="card mb-3">
-          <div class="form-group mt-2">
-            <label for="clientEmail"><strong>Email Address:</strong></label>
-            <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
-              placeholder="Enter email" required>
-          </div>
+          <div class="card mb-3">
+            <div class="form-group mt-2">
+              <label for="clientEmail"><strong>Email Address:</strong></label>
+              <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
+                placeholder="Enter email" required>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="clientPassw"><strong>Password:</strong></label>
-            <input type="password" name="password" class="form-control" id="clientPassw" aria-describedby="password"
-              placeholder="Password" required>
-          </div>
+            <div class="form-group mt-2">
+              <label for="clientPassw"><strong>Password:</strong></label>
+              <input type="password" name="password" class="form-control" id="clientPassw" aria-describedby="password"
+                placeholder="Password" required>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="clientName"><strong>Name of the Company:</strong></label>
-            <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name"
-              placeholder="Enter name of the company" required>
-          </div>
+            <div class="form-group mt-2">
+              <label for="clientName"><strong>Name of the Company:</strong></label>
+              <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name"
+                placeholder="Enter name of the company" required>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="clientaddress"><strong>Company Address:</strong></label>
-            <input name="bus-address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
-              placeholder="Enter Address" required>
-          </div>
+            <div class="form-group mt-2">
+              <label for="clientaddress"><strong>Company Address:</strong></label>
+              <input name="bus_address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
+                placeholder="Enter Address" required>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="client-website"><strong>Company Website:</strong></label>
-            <input name="bus-website" type="text" class="form-control" id="clientwebsite" aria-describedby="website"
-              placeholder="Enter Web Address" required>
-          </div>
+            <div class="form-group mt-2">
+              <label for="client-website"><strong>Company Website:</strong></label>
+              <input name="bus_website" type="text" class="form-control" id="clientwebsite" aria-describedby="website"
+                placeholder="Enter Web Address" required>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="client-number"><strong>Company Phone Number:</strong></label>
-            <input name="bus-number" type="text" class="form-control" id="clientNumber" aria-describedby="number"
-              placeholder="Enter Phone Number" required>
-          </div>
-          <div class="form-group mt-2">
-            <label for="inputTime"><strong>First Available Appointment:</strong></label>
-            <select id="clientFirstApp" class="form-control">
-              <option selected>Choose...</option>
-              <option value="1">8:00 AM</option>
-              <option value="2">9:00 AM</option>
-              <option value="3">10:00 AM</option>
-              <option value="4">11:00 AM</option>
-              <option value="5">12:00 PM</option>
-              <option value="6">1:00 PM</option>
-              <option value="7">2:00 PM</option>
-              <option value="8">3:00 PM</option>
-              <option value="9">4:00 PM</option>
-              <option value="10">5:00 PM</option>
-              <option value="11">6:00 PM</option>
-              <option value="12">7:00 PM</option>
-              <option value="13">8:00 PM</option>
-              <option value="14">9:00 PM</option>
-              <option value="15">10:00 PM</option>
-              <option>...</option>
-            </select>
-          </div>
+            <div class="form-group mt-2">
+              <label for="client-number"><strong>Company Phone Number:</strong></label>
+              <input name="bus_number" type="text" class="form-control" id="clientNumber" aria-describedby="number"
+                placeholder="Enter Phone Number" required>
+            </div>
+            <div class="form-group mt-2">
+              <label for="inputTime"><strong>First Available Appointment:</strong></label>
+              <select name="first_apt" id="clientFirstApp" class="form-control">
+                <option selected>Choose...</option>
+                <option value="1">8:00 AM</option>
+                <option value="2">9:00 AM</option>
+                <option value="3">10:00 AM</option>
+                <option value="4">11:00 AM</option>
+                <option value="5">12:00 PM</option>
+                <option value="6">1:00 PM</option>
+                <option value="7">2:00 PM</option>
+                <option value="8">3:00 PM</option>
+                <option value="9">4:00 PM</option>
+                <option value="10">5:00 PM</option>
+                <option value="11">6:00 PM</option>
+                <option value="12">7:00 PM</option>
+                <option value="13">8:00 PM</option>
+                <option value="14">9:00 PM</option>
+                <option value="15">10:00 PM</option>
+                <option>...</option>
+              </select>
+            </div>
 
-          <div class="form-group mt-2">
-            <label for="inputTime"><strong>Last Available Appointment</strong></label>
-            <select id="clientLastApp" class="form-control">
-              <option selected>Choose...</option>
-              <option value="1">8:00 AM</option>
-              <option value="2">9:00 AM</option>
-              <option value="3">10:00 AM</option>
-              <option value="4">11:00 AM</option>
-              <option value="5">12:00 PM</option>
-              <option value="6">1:00 PM</option>
-              <option value="7">2:00 PM</option>
-              <option value="8">3:00 PM</option>
-              <option value="9">4:00 PM</option>
-              <option value="10">5:00 PM</option>
-              <option value="11">6:00 PM</option>
-              <option value="12">7:00 PM</option>
-              <option value="13">8:00 PM</option>
-              <option value="14">9:00 PM</option>
-              <option value="15">10:00 PM</option>
-              <option>...</option>
-            </select>
-          </div>
+            <div class="form-group mt-2">
+              <label for="inputTime"><strong>Last Available Appointment</strong></label>
+              <select name="last_apt" id="clientLastApp" class="form-control">
+                <option selected>Choose...</option>
+                <option value="1">8:00 AM</option>
+                <option value="2">9:00 AM</option>
+                <option value="3">10:00 AM</option>
+                <option value="4">11:00 AM</option>
+                <option value="5">12:00 PM</option>
+                <option value="6">1:00 PM</option>
+                <option value="7">2:00 PM</option>
+                <option value="8">3:00 PM</option>
+                <option value="9">4:00 PM</option>
+                <option value="10">5:00 PM</option>
+                <option value="11">6:00 PM</option>
+                <option value="12">7:00 PM</option>
+                <option value="13">8:00 PM</option>
+                <option value="14">9:00 PM</option>
+                <option value="15">10:00 PM</option>
+                <option>...</option>
+              </select>
+            </div>
 
-          <div class="form-group">
-            <label for="fileUpload"><strong>Company Logo: </strong></label>
-            <input type="file" class="form-control-file" id="fileUpload">
-          </div>
+            <div class="form-group">
+              <label for="fileUpload"><strong>Company Logo: </strong></label>
+              <input type="file" name="file" class="form-control-file">
+            </div>
 
-          <button type="submit" id="clientSignup" class="btn btn-primary mb-3 mt-2">Sign Up</button>
+            <button type="submit" class="btn btn-primary mb-3 mt-2">Sign Up</button>
+          </div>
+      </div>
     </form>
   </div>
 </div>

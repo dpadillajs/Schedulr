@@ -25,6 +25,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 
 // Handlebars
 app.engine(
