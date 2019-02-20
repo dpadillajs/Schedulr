@@ -71,6 +71,7 @@ $(document).ready(function() {
 
       $(document).on("click", "#editApptPortalBtn" + appId, function(event) {
         event.preventDefault();
+        console.log("clicked");
         var note = $("#notes" + appId)
           .val()
           .trim();
