@@ -16,6 +16,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    bus_address: {
+      type: DataTypes.STRING,
+      notEmpty: true
+    },
+    bus_website: {
+      type: DataTypes.STRING
+    },
+    bus_number: {
+      type: DataTypes.INTEGER,
+      notEmpty: true
+    },
     last_login: {
       type: DataTypes.DATE
     },
