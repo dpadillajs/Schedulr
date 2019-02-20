@@ -1,16 +1,5 @@
 var db = require("../models");
-var multer = require("multer");
-
-var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function(req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname);
-  }
-});
-
-var upload = multer({ storage: storage });
+var upload = require("./multer");
 
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
@@ -111,7 +100,6 @@ module.exports = function(app, passport) {
 
   //Authentification
   app.post("/signup", upload.single("file"), function(req, res, next) {
-    console.log(req.body);
     passport.authenticate("local-signup", function(err, user, info) {
       if (err) {
         return next(err);
