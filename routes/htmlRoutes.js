@@ -45,12 +45,30 @@ module.exports = function(app, passport) {
           console.log(req.query);
           if (Object.keys(req.query).length === 0 || req.query.sval === "") {
             db.Customer.findAll({}).then(function(dbCustomer) {
+              // var buff = new Buffer.from(dbClient.image);
+              // var base64data;
+              // console.log(base64data);
+
+              // var reader = new FileReader();
+              // reader.readAsDataURL(blob);
+              // reader.onloadend = function() {
+              //   base64data = reader.result;
+
+              //   dbClient.image = base64data;
+              //   console.log(dbClient.image);
+
+              var bufferBase64 = new Buffer(dbClient.image, "binary").toString("base64");
+              dbClient.image = bufferBase64;
+
+              console.log(dbClient.image);
+
               res.render("dashboard", {
                 client: dbClient,
                 appointments: dbAppt,
                 listOfCustomers: dbCustomer,
                 numOfAppointments: dbApptCount
               });
+              // };
             });
           } else if (req.query) {
             var key = req.query.stype;

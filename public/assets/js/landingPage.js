@@ -25,29 +25,33 @@ $("#clientSignup").on("click", function(event) {
   obj.last_apt = $("#clientLastApp option:selected")
     .val()
     .trim();
-  obj.file = $("#fileUpload")
-    .val()
-    .trim();
+  obj.file = $("#fileUpload")[0].files[0];
 
-console.log(obj);
+  console.log(obj);
 
-  $.ajax({
-    method: "POST",
-    url: "/signup",
-    data: obj
-  }).then(function(response) {
-console.log("requestsent");
+  var r = new FileReader();
+  r.onload = function() { 
+    obj.file = r.result;
 
-    if (response.message) {
-      Swal.fire({
-        type: "error",
-        title: "Oops...",
-        text: response.message
-      });
-    } else {
-      window.location.replace("/client");
-    }
-  });
+    console.log(obj);
+    $.ajax({
+      method: "POST",
+      url: "/signup",
+      data: obj
+    }).then(function(response) {
+      if (response.message) {
+        Swal.fire({
+          type: "error",
+          title: "Oops...",
+          text: response.message
+        });
+      } else {
+        window.location.replace("/client");
+      }
+    });
+  };
+
+  r.readAsBinaryString(obj.file)
 });
 
 $("#clientLogin").on("click", function(event) {
