@@ -1,4 +1,16 @@
 var db = require("../models");
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+
+var upload = multer({ storage: storage });
 
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
@@ -45,30 +57,12 @@ module.exports = function(app, passport) {
           console.log(req.query);
           if (Object.keys(req.query).length === 0 || req.query.sval === "") {
             db.Customer.findAll({}).then(function(dbCustomer) {
-              // var buff = new Buffer.from(dbClient.image);
-              // var base64data;
-              // console.log(base64data);
-
-              // var reader = new FileReader();
-              // reader.readAsDataURL(blob);
-              // reader.onloadend = function() {
-              //   base64data = reader.result;
-
-              //   dbClient.image = base64data;
-              //   console.log(dbClient.image);
-
-              var bufferBase64 = new Buffer(dbClient.image, "binary").toString("base64");
-              dbClient.image = bufferBase64;
-
-              console.log(dbClient.image);
-
               res.render("dashboard", {
                 client: dbClient,
                 appointments: dbAppt,
                 listOfCustomers: dbCustomer,
                 numOfAppointments: dbApptCount
               });
-              // };
             });
           } else if (req.query) {
             var key = req.query.stype;
@@ -116,12 +110,9 @@ module.exports = function(app, passport) {
   });
 
   //Authentification
-
-  app.post("/signup", function(req, res, next) {
+  app.post("/signup", upload.single("file"), function(req, res, next) {
+    console.log(req.body);
     passport.authenticate("local-signup", function(err, user, info) {
-      console.log(err);
-      console.log(user);
-      console.log(info);
       if (err) {
         return next(err);
       }
@@ -132,7 +123,7 @@ module.exports = function(app, passport) {
         if (err) {
           return next(err);
         }
-        res.json({ valid: true });
+        res.redirect("/client");
       });
     })(req, res, next);
   });

@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    image: DataTypes.BLOB("long"),
+    image: DataTypes.STRING,
     password: {
       type: DataTypes.STRING,
       allowNull: false

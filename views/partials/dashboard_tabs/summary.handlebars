@@ -22,8 +22,8 @@
 
                         <dt class="col-sm-3">Customer Service</dt>
                         <dd class="col-sm-9">123.456.7890</dd>
-                        {{!-- {{#image client}{{client}}{{/image}} --}}
                     </dl>
+                    <img id="client_image" src="" alt="loading"/>
                 </div>
             </div>
         </div>
@@ -186,25 +186,6 @@
 </div>
 
 <script>
-    var clientImage = "{{client.image}}";
-
-    var binary = atob(clientImage);
-    var len = binary.length;
-    var buffer = new ArrayBuffer(len);
-    var view = new Uint8Array(buffer);
-    
-    for (var i = 0; i < len; i++) {
-        view[i] = binary.charCodeAt(i);
-    }
-    console.log(new Blob([view], {type: 'image/jpeg'}));
-
-    var clientImage = "{{client.image}}";
-
-    var image = document.createElement('img');
-    
-    image.setAttribute("src", 'data:image/bmp;base64,' + new Blob(JSON.parse(clientImage)));
-    image.setAttribute("alt", "TESTING");
-
-    document.body.appendChild(image);
-
+    var imageSrc = "{{client.image}}";
+    document.querySelector("#client_image").src = imageSrc;
 </script>
