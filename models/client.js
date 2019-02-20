@@ -12,6 +12,18 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
+    bus_address: {
+      type: DataTypes.STRING,
+      notEmpty: true
+    },
+    bus_website: {
+      type: DataTypes.STRING
+    },
+    bus_number: {
+      type: DataTypes.STRING,
+      notEmpty: true
+    },
+    image: DataTypes.STRING,
     password: {
       type: DataTypes.STRING,
       allowNull: false

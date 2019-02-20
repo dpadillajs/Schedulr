@@ -174,6 +174,23 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/api/customer/:id", function(req, res) {
+    db.Customer.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(custInfo) {
+        console.log(custInfo);
+        res.json(custInfo);
+      })
+      .catch(function(err) {
+        if (err) {
+          res.json(err);
+        }
+      });
+  });
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();

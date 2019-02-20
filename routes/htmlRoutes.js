@@ -1,4 +1,5 @@
 var db = require("../models");
+var upload = require("./multer");
 
 var moment = require("moment");
 moment().format();
@@ -139,8 +140,7 @@ module.exports = function(app, passport) {
   });
 
   //Authentification
-
-  app.post("/signup", function(req, res, next) {
+  app.post("/signup", upload.single("file"), function(req, res, next) {
     passport.authenticate("local-signup", function(err, user, info) {
       console.log(err);
       console.log(user);
@@ -155,7 +155,7 @@ module.exports = function(app, passport) {
         if (err) {
           return next(err);
         }
-        res.json({ valid: true });
+        res.redirect("/client");
       });
     })(req, res, next);
   });

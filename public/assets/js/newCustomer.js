@@ -33,10 +33,6 @@ $("#createCustomer").on("click", function(event) {
       .val()
       .trim() + " ";
   address +=
-    $("#custSecondaryAddress")
-      .val()
-      .trim() + " ";
-  address +=
     $("#custCity")
       .val()
       .trim() + " ";

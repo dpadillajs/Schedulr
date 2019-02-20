@@ -48,8 +48,12 @@ module.exports = function(passport, client) {
               email: email,
               password: clientPassword,
               bus_name: req.body.bus_name,
+              bus_address: req.body.bus_address,
+              bus_website: req.body.bus_website,
+              bus_number: req.body.bus_number,
               first_apt: req.body.first_apt + ":00",
-              last_apt: req.body.last_apt + ":00"
+              last_apt: req.body.last_apt + ":00",
+              image: req.file.path
             };
             db.Client.create(data).then(function(newClient, created) {
               if (!newClient) {
