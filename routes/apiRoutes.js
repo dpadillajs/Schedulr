@@ -1,5 +1,8 @@
 var db = require("../models");
 
+var moment = require("moment");
+moment().format();
+
 module.exports = function(app) {
   // Get all appointments
   app.get("/api/appointments", isLoggedIn, function(req, res) {
@@ -105,8 +108,13 @@ module.exports = function(app) {
         }
       ]
     }).then(function(data) {
+      var prettyApp = data.map(function(element) {
+        var newDate = moment(element.start_time).format("MMMM Do YYYY, h:mm a");
+        element.pretty_start_time = newDate;
+        return element;
+      });
       res.render("customerAppointments", {
-        app: data,
+        app: prettyApp,
         layout: false
       });
     });
@@ -116,7 +124,6 @@ module.exports = function(app) {
     db.Customer.update(
       {
         email: req.body.email,
-        password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         mName: req.body.mName,

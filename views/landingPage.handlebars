@@ -1,10 +1,16 @@
 <div class="landing-page-bg">
   <form >
     <div class="container-fluid login-container d-flex justify-content-end align-items-center">
-      <input name="email" type="email" class="form-control mr-3" id="landingPageEmail" aria-describedby="emailHelp"
-        placeholder="Email" required>
-      <input name="password" type="password" class="form-control mr-3" id="landingPagePassword" placeholder="Password"
-        required>
+      <div class="mb-2 float-left">
+        <label for="landingPageEmail" class="mb-0 user-login-labels">Email</label>
+        <input name="email" type="email" class="form-control mr-3" id="landingPageEmail" aria-describedby="emailHelp"
+          placeholder="Email" required>
+      </div>
+      <div class="mb-2 float-right">
+        <label for="landingPagePassword" class="mb-0 user-login-labels">Password</label>
+        <input name="password" type="password" class="form-control mr-3" id="landingPagePassword" placeholder="Password"
+          required>
+      </div>
       <button type="submit" id="clientLogin" class="btn remove-border-radius btn-primary">Log In</button>
     </div>
   </form>

@@ -71,6 +71,7 @@ $(document).ready(function() {
 
       $(document).on("click", "#editApptPortalBtn" + appId, function(event) {
         event.preventDefault();
+        console.log("clicked");
         var note = $("#notes" + appId)
           .val()
           .trim();
@@ -111,9 +112,6 @@ $(document).ready(function() {
     var editID = $("input[name='selectedCustomer']:checked").val();
     editCustomer.id = editID;
     editCustomer.email = $("#custEmailEdit")
-      .val()
-      .trim();
-    editCustomer.password = $("#custPasswordEdit")
       .val()
       .trim();
     editCustomer.firstName = $("#custFirstNameEdit")
