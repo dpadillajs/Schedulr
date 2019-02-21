@@ -1,7 +1,7 @@
 .client-dashboard-bg {
   background: rgb(42, 55, 69);
   color: white;
-  height: 80px;
+  height: 110px;
 }
 
 .client-logo {
@@ -118,6 +118,7 @@
   border-radius: 5px;
   padding: 20px;
   margin-top: 30px;
+  background: white;
 }
 
 .new-member-btn-styling,
@@ -154,7 +155,8 @@
 }
 #logout {
   position: absolute;
-  right: 0;
+  right: 10px;
+  top: 10px;
 }
 
 .edit-del-icons {
@@ -261,4 +263,8 @@
 .card-img-top {
   max-width: 100vw;
   max-height: 200px;
+}
+
+#scrollDownForm {
+  background: none;
 }
