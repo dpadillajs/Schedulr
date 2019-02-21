@@ -151,3 +151,9 @@ small {
 #clientSignUpBtn:hover {
   background: rgb(190, 190, 190);
 }
+
+@media (max-width: 767px) {
+  .appt-label-styling {
+    margin-top: 15px;
+  }
+}

@@ -115,7 +115,6 @@
 }
 
 .new-member-styling {
-  background: white;
   border-radius: 5px;
   padding: 20px;
   margin-top: 30px;
@@ -212,7 +211,8 @@
 #editCustomer:hover,
 #createCustomer:hover,
 #newCust:hover,
-#createAppt:hover {
+#createAppt:hover,
+#clientSignUp:hover {
   opacity: 0.9;
 }
 
