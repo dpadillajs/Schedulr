@@ -23,18 +23,18 @@ $(document).ready(function() {
       $("#selected").text($(this).text());
       var type = $(this).text();
       switch (type) {
-      case "ID":
-        typeQuery = "id";
-        break;
-      case "Last Name":
-        typeQuery = "lastName";
-        break;
-      case "Phone Number":
-        typeQuery = "phone";
-        break;
-      case "Email":
-        typeQuery = "email";
-        break;
+        case "ID":
+          typeQuery = "id";
+          break;
+        case "Last Name":
+          typeQuery = "lastName";
+          break;
+        case "Phone Number":
+          typeQuery = "phone";
+          break;
+        case "Email":
+          typeQuery = "email";
+          break;
       }
       $("#stype").val(typeQuery);
     });
@@ -105,14 +105,13 @@ $(document).ready(function() {
   }
   editApp();
 
-
   $("#app-Edit").on("click", function(event) {
     event.preventDefault();
     var editID = $("input[name='selectedCustomer']:checked").val();
 
     $.ajax({
       method: "GET",
-      url: "/api/customer/" + editID,
+      url: "/api/customer/" + editID
     }).then(function(response) {
       console.log(response[0]);
       var address = response[0].address.split(" ");
@@ -130,7 +129,10 @@ $(document).ready(function() {
       $("#custGenderEdit").val(response[0].gender);
       $("#custNumberEdit").val(response[0].phone);
       $("#custAddressEdit").val(street);
-      $("#custStateEdit option[value=" + state + "]").attr("selected", "selected");
+      $("#custStateEdit option[value=" + state + "]").attr(
+        "selected",
+        "selected"
+      );
       $("#custCityEdit").val(city);
       $("#custZipCodeEdit").val(response[0].zipcode);
     });

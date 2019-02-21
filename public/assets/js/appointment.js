@@ -120,7 +120,9 @@ var time = function() {
 };
 
 // Summary Tab Display Blocks
+var memberCount = $("#countUniqueMembers").children().length;
 $("#displayMonth").text(moment().format("MMMM"));
 $("#displayDate").text(moment().format("DD"));
 $("#displayDay").text(moment().format("dddd"));
 $("#displayTime").text(time);
+$("#displayMembers").text(memberCount);
