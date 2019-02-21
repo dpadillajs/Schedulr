@@ -1,5 +1,5 @@
 <div class="landing-page-bg">
-  <form >
+  <form>
     <div class="container-fluid login-container d-flex justify-content-end align-items-center">
       <div class="mb-2 float-left">
         <label for="landingPageEmail" class="mb-0 user-login-labels">Email</label>
@@ -21,7 +21,7 @@
       <em>schedulr aims to simplify the communication process between
         both client and customer</em>
     </p>
-    <a class="btn btn-primary align-self-center" id="clientSignUpBtn" href="#clientSignUpForm" role="button">Sign Up</a>
+    <a class="btn btn-primary align-self-center" id="clientSignUpBtn" href="#scrollDownForm" role="button">Sign Up</a>
   </div>
 
   <div class="jumbotron jumbotron-fluid mb-0 p-0 overview">
@@ -68,47 +68,56 @@
     </div>
   </div>
 
-  <div id="clientSignUpForm" style="background: lightblue;">
-    <form action="/signup" method="post" enctype="multipart/form-data">
-      <div class="form-group" id="client-signup">
-          <div class="card mb-3">
-            <div class="form-group mt-2">
-              <label for="clientEmail"><strong>Email Address:</strong></label>
-              <input type="email" name="email" class="form-control" id="clientEmail" aria-describedby="emailHelp"
-                placeholder="Enter email" required>
+  <div class="container new-member-styling" id="scrollDownForm">
+    <div class="card">
+      <div class="card-header new-member-header-styling">
+        <h4 class="mb-0 lookupLogo">Client Registration Form</h4>
+      </div>
+
+      <div class="card-body h-100">
+        <form action="/signup" method="post" enctype="multipart/form-data" id="client-signup">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="clientEmail">Email</label>
+              <input required type="email" name="email" class="form-control" id="clientEmail"
+                placeholder="email@domain.org" aria-describedby="emailHelp">
             </div>
 
-            <div class="form-group mt-2">
-              <label for="clientPassw"><strong>Password:</strong></label>
-              <input type="password" name="password" class="form-control" id="clientPassw" aria-describedby="password"
-                placeholder="Password" required>
+            <div class="form-group col-md-6">
+              <label for="clientPassw">Password</label>
+              <input required type="password" name="password" class="form-control" aria-describedby="password"
+                id="clientPassw">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12 col-md-5">
+              <label for="clientName">Company Name</label>
+              <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name" required>
             </div>
 
-            <div class="form-group mt-2">
-              <label for="clientName"><strong>Name of the Company:</strong></label>
-              <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name"
-                placeholder="Enter name of the company" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="clientaddress"><strong>Company Address:</strong></label>
-              <input name="bus_address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
-                placeholder="Enter Address" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="client-website"><strong>Company Website:</strong></label>
-              <input name="bus_website" type="text" class="form-control" id="clientwebsite" aria-describedby="website"
-                placeholder="Enter Web Address" required>
-            </div>
-
-            <div class="form-group mt-2">
-              <label for="client-number"><strong>Company Phone Number:</strong></label>
+            <div class="form-group col-6 col-md-3">
+              <label for="client-number">Number</label>
               <input name="bus_number" type="text" class="form-control" id="clientNumber" aria-describedby="number"
-                placeholder="Enter Phone Number" required>
+                required>
             </div>
-            <div class="form-group mt-2">
-              <label for="inputTime"><strong>First Available Appointment:</strong></label>
+
+            <div class="form-group col-6 col-md-4">
+              <label for="client-website">Website</label>
+              <input name="bus_website" type="text" class="form-control" id="clientwebsite" aria-describedby="website"
+                required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-12 col-md-8">
+              <label for="clientaddress">Company Location</label>
+              <input name="bus_address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
+                required>
+            </div>
+
+            <div class="col-6 col-md-2">
+              <label for="inputTime" class="appt-label-styling">First Appt</label>
               <select name="first_apt" id="clientFirstApp" class="form-control">
                 <option selected>Choose...</option>
                 <option value="1">8:00 AM</option>
@@ -130,8 +139,8 @@
               </select>
             </div>
 
-            <div class="form-group mt-2">
-              <label for="inputTime"><strong>Last Available Appointment</strong></label>
+            <div class="col-6 col-md-2">
+              <label for="inputTime" class="appt-label-styling">Last Appt</label>
               <select name="last_apt" id="clientLastApp" class="form-control">
                 <option selected>Choose...</option>
                 <option value="1">8:00 AM</option>
@@ -152,15 +161,19 @@
                 <option>...</option>
               </select>
             </div>
-
-            <div class="form-group">
-              <label for="fileUpload"><strong>Company Logo: </strong></label>
-              <input type="file" name="file" class="form-control-file">
-            </div>
-
-            <button type="submit" class="btn btn-primary mb-3 mt-2">Sign Up</button>
           </div>
+
+          <div class="form-row mt-3">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="fileUpload">Company Logo</label>
+                <input type="file" name="file" class="form-control-file">
+              </div>
+            </div>
+          </div>
+          <button type="submit" id="clientSignUp" class="btn btn-primary mb-3 mt-2">Sign Up</button>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 </div>
