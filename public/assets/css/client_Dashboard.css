@@ -257,3 +257,8 @@
 .customerLookupTable {
   margin-bottom: 1rem !important;
 }
+
+.card-img-top {
+  max-width: 100vw;
+  max-height: 200px;
+}

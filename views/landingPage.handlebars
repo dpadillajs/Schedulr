@@ -3,8 +3,7 @@
     <div class="container-fluid login-container d-flex justify-content-end align-items-center">
       <div class="mb-2 float-left">
         <label for="landingPageEmail" class="mb-0 user-login-labels">Email</label>
-        <input name="email" type="email" class="form-control mr-3" id="landingPageEmail" aria-describedby="emailHelp"
-          placeholder="Email" required>
+        <input name="email" type="email" class="form-control mr-3" id="landingPageEmail" placeholder="Email" required>
       </div>
       <div class="mb-2 float-right">
         <label for="landingPagePassword" class="mb-0 user-login-labels">Password</label>
@@ -80,40 +79,36 @@
             <div class="form-group col-md-6">
               <label for="clientEmail">Email</label>
               <input required type="email" name="email" class="form-control" id="clientEmail"
-                placeholder="email@domain.org" aria-describedby="emailHelp">
+                placeholder="email@domain.org">
             </div>
 
             <div class="form-group col-md-6">
               <label for="clientPassw">Password</label>
-              <input required type="password" name="password" class="form-control" aria-describedby="password"
-                id="clientPassw">
+              <input required type="password" name="password" class="form-control" id="clientPassw">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-12 col-md-5">
               <label for="clientName">Company Name</label>
-              <input name="bus_name" type="text" class="form-control" id="clientName" aria-describedby="name" required>
+              <input name="bus_name" type="text" class="form-control" id="clientName" required>
             </div>
 
             <div class="form-group col-6 col-md-3">
               <label for="client-number">Number</label>
-              <input name="bus_number" type="text" class="form-control" id="clientNumber" aria-describedby="number"
-                required>
+              <input name="bus_number" type="text" class="form-control" id="clientNumber" required>
             </div>
 
             <div class="form-group col-6 col-md-4">
               <label for="client-website">Website</label>
-              <input name="bus_website" type="text" class="form-control" id="clientwebsite" aria-describedby="website"
-                required>
+              <input name="bus_website" type="text" class="form-control" id="clientwebsite" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="col-12 col-md-8">
               <label for="clientaddress">Company Location</label>
-              <input name="bus_address" type="text" class="form-control" id="clientAddress" aria-describedby="address"
-                required>
+              <input name="bus_address" type="text" class="form-control" id="clientAddress" required>
             </div>
 
             <div class="col-6 col-md-2">
@@ -167,7 +162,8 @@
             <div class="col-12">
               <div class="form-group">
                 <label for="fileUpload">Company Logo</label>
-                <input type="file" name="file" class="form-control-file">
+                <input type="file" name="file" class="form-control-file" aria-describedby="recommendedSize">
+                <small id="recommendedSize" class="form-text text-muted">800 x 200<br>Recommended Photo Size</small>
               </div>
             </div>
           </div>
