@@ -157,3 +157,7 @@ small {
     margin-top: 15px;
   }
 }
+
+.card-sign-up-styling {
+  border: 5px solid rgba(0, 0, 0, 0.125);
+}
