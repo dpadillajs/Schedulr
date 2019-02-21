@@ -47,7 +47,7 @@
                                     <th scope="col" class="responsive-contact-number">Contact Number</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="countUniqueMembers">
                                 {{#each listOfCustomers}}
                                 <tr>
                                     <td> <input type="radio" name="selectedCustomer" value="{{this.id}}">
@@ -81,7 +81,7 @@
                     <div class="card card-body p-0 h-100">
                         <div class="table-responsive" id="custEdit">
 
-                            <div class="container new-member-styling">
+                            <div class="container new-member-styling mt-0">
                                 <div class="card">
                                     <div class="card-header new-member-header-styling">
                                         <h4 class="mb-0">Edit Customer Information</h4>

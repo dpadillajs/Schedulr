@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12 mx-auto">
             <div class="card">
-                
+                <img id="client_image" src="" class="card-img-top" alt="Business Logo Photo" />
                 <div class="card-body company-info-body">
                     <dl class="row">
                         <dt class="col-sm-3">Business Name</dt>
@@ -23,7 +23,6 @@
                         <dt class="col-sm-3">Customer Service</dt>
                         <dd class="col-sm-9">{{client.bus_number}}</dd>
                     </dl>
-                    <img id="client_image" src="" alt="loading"/>
                 </div>
             </div>
         </div>
@@ -59,7 +58,7 @@
         <div class="col-12 col-sm-6 col-lg-3 summary-box summary-member">
             <div class="card summary-cards mx-auto bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-body card-body-padding">
-                    <p class="card-text member-text">19</p>
+                    <p class="card-text member-text" id="displayMembers"></p>
                 </div>
                 <div class="card-header members-header">Members</div>
             </div>
@@ -78,12 +77,6 @@
                 <nav class="navbar navbar-light customer-navbar-styling justify-content-between">
                     <a class="navbar-brand lookupLogo">Appointments</a>
                     {{!-- This will actually be a date range selecter and search --}}
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2 search-width-styling responsive-search-icon" type="search"
-                            placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                                class="fas fa-search"></i></button>
-                    </form>
                 </nav>
             </div>
             <div class="card-body p-0 h-100">
